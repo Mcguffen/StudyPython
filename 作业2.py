@@ -86,6 +86,17 @@ https://movie.douban.com/top250
 
 解析方式可以用任意手段，如果你没有想法，用字符串查找匹配比较好(find 特征字符串加切片)
 """
+def find_element_by_label(body, left_label, right_label):
+    
+
+
+def parsed_html_movies(body):
+    # 接受html的 body部分
+    # 返回body里面的电影名字
+    bd = body
+
+    movies = bd
+    return movies
 
 
 def parsed_html(url):
@@ -98,7 +109,7 @@ def parsed_html(url):
     # 标签找到元素
     url = 'http://movie.douban.com/top250'
     status_code, headers, body = get(url)
-
+    movies = pa
 
 
 
