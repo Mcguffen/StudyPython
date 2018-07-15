@@ -156,7 +156,7 @@ def find_between(s, left, right):
     while i < 100:
         str = str[le + ri:]
         # log('result', result)
-        # log('i', i)
+
         le = find2(str, lef) + len(lef)
         # 切右边的字符串, 找第一匹配的右字符
         ris = le + 30
@@ -180,6 +180,7 @@ def find_element_by_label(body, left_label, right_label):
     # left = left_label
     # right = right_label
     # element = find_between(body, left, right)
+    right_l = right_label
     now_str = body
 
     # 做多少次循环呢
@@ -194,18 +195,20 @@ def find_element_by_label(body, left_label, right_label):
         now_str = now_str[left:]
         right_str = now_str[:30]
         right = right_str.find(right_label)
-        # log("lcontinue begin,", i, right)
+        log("right_str", right_str)
+        log("inner left_label right label\n", left_label, right_label)
         if right != -1:
             # now_str = now_str[left:]
             e = now_str[:right]
-            if '&nbsp'in e:
+            # log("inner ({}), i".format(e, i))
+            if '&nbsp' in e:
                 i = i + 1
-                log("&nbsp,", e)
+                # log("&nbsp,", e)
                 continue
             else:
                 elements.append(e)
         else:
-            log("lcontinue,", i, right)
+            # log("lcontinue,", i, right)
             i += 1
             continue
         i += 1
@@ -218,8 +221,8 @@ def find_element_by_label(body, left_label, right_label):
     # left_position = left + len(left)
     #
     # 字符串 element = nor_str[]
-    log("element eles len(lens)", e, elements, len(elements))
-
+    # log("element eles len(lens)", e, elements, len(elements))
+    # log("len ", len(elements))
     return elements
 
 
@@ -229,17 +232,36 @@ def parsed_html(url):
     # 1，电影名  <span class="title">这个杀手不太冷</span>
     # 2，分数   <span class="rating_num" property="v:average">9.4</span>
     # 3，评价人数  <span>994476人评价</span>
-    # 4，<span class="inq">怪蜀黍和小萝莉不得不说的故事。</span>
+    # 4，介绍 <span class="inq">怪蜀黍和小萝莉不得不说的故事。</span>
     # 标签找到元素
     url = 'http://movie.douban.com/top250'
     status_code, headers, body = get(url)
+    movies_labels = ['<span class="title">', '</span>']
+    sorces_labels = ['<span class="rating_num" property="v:average">', '</span>']
+    coments_labels = ['<span>', '人评价</span>']
+    inqs_labels = ['<span class="inq">', '</span>']
 
-    movies = find_element_by_label(body, l, r)
+    movies = find_element_by_label(body, movies_labels[0], movies_labels[1])
+    sorces = find_element_by_label(body, sorces_labels[0], sorces_labels[1])
+    coments = find_element_by_label(body, coments_labels[0], coments_labels[1])
+    inqs = find_element_by_label(body, inqs_labels[0], inqs_labels[1])
+    # log("inqs_labels[0]", inqs_labels[0], inqs_labels[1])
+    # log("m s c i", inqs)
+    result = [len(movies)]
+    log("len", len(movies), len(sorces), len(coments), len(inqs))
+    for i in range(len(movies)):
+        m = movies[i]
+        s = sorces[i]
+        c = coments[i]
+        i = inqs[i]
+        op = '\n'
+        result = m + op + s + op + c + op + i + op
+        log("result\n", result)
+
+    return movies, sorces, coments, inqs
+
 
 def test_find_element_by_label():
-    # left = '<span class="title">'
-    left = '<a href="https://www.douban.com/group" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-group&quot;,&quot;uid&quot;:&quot;0&quot;}">'
-    right = '</span>'
     url = 'http://movie.douban.com/top250'
     status_code, headers, body = get(url)
     test_items = [
@@ -255,6 +277,13 @@ def test_find_element_by_label():
         log("t", t)
         left_label, right_label = t
         find_element_by_label(body, left_label, right_label)
+
+
+def test_parsed_html():
+    url = 'http://movie.douban.com/top250'
+    parsed_html(url)
+
+
 
 
 def test_find_between():
@@ -300,7 +329,8 @@ https://movie.douban.com/top250?start=25
 # 单元测试
 def test():
     # test_find_between()
-    test_find_element_by_label()
+    # test_find_element_by_label()
+    test_parsed_html()
 
 
 def main():
