@@ -193,10 +193,10 @@ def find_element_by_label(body, left_label, right_label):
     while i < n:
         left = now_str.find(left_label) + len(left_label)
         now_str = now_str[left:]
-        right_str = now_str[:30]
+        right_str = now_str[:60]
         right = right_str.find(right_label)
-        log("right_str", right_str)
-        log("inner left_label right label\n", left_label, right_label)
+        # log("right_str", right_str, i)
+        # log("inner left_label right label\n", left_label, right_label)
         if right != -1:
             # now_str = now_str[left:]
             e = now_str[:right]
@@ -222,7 +222,7 @@ def find_element_by_label(body, left_label, right_label):
     #
     # 字符串 element = nor_str[]
     # log("element eles len(lens)", e, elements, len(elements))
-    # log("len ", len(elements))
+    log("len ", len(elements))
     return elements
 
 
@@ -234,7 +234,7 @@ def parsed_html(url):
     # 3，评价人数  <span>994476人评价</span>
     # 4，介绍 <span class="inq">怪蜀黍和小萝莉不得不说的故事。</span>
     # 标签找到元素
-    url = 'http://movie.douban.com/top250'
+    url = 'https://movie.douban.com/top250?start=25'
     status_code, headers, body = get(url)
     movies_labels = ['<span class="title">', '</span>']
     sorces_labels = ['<span class="rating_num" property="v:average">', '</span>']
@@ -247,18 +247,21 @@ def parsed_html(url):
     inqs = find_element_by_label(body, inqs_labels[0], inqs_labels[1])
     # log("inqs_labels[0]", inqs_labels[0], inqs_labels[1])
     # log("m s c i", inqs)
-    result = [len(movies)]
-    log("len", len(movies), len(sorces), len(coments), len(inqs))
+    result = [1] * len(movies)
+    log("result  len\n", len(result))
+    # log("len", len(movies), len(sorces), len(coments), len(inqs))
     for i in range(len(movies)):
         m = movies[i]
         s = sorces[i]
         c = coments[i]
-        i = inqs[i]
+        ins = inqs[i]
         op = '\n'
-        result = m + op + s + op + c + op + i + op
-        log("result\n", result)
-
-    return movies, sorces, coments, inqs
+        # log("movies ({}), ({}))".format(ins, i))
+        res = m + op + s + op + c + op + ins + op
+        result[i] = res
+        # log("res\n", res, i)
+    log("result ({}),\n url =({})".format(result, url))
+    return result
 
 
 def test_find_element_by_label():
@@ -326,12 +329,32 @@ https://movie.douban.com/top250?start=25
 """
 
 
+def parsed_all_html(n):
+    # 传入一个数字
+    # 返回所有的
+    # 每一页25个元素
+    url = 'https://movie.douban.com/top250?start='
+    now_url = url
+    n = 250
+    i = 0
+    while i < 6:
+        rs = parsed_html(now_url)
+        now_url = now_url + str(25 * i)
+        log("第({})个, 长度({}),url =({})".format(i, len(rs), now_url))
+        log("rs".format(rs))
+        i += 1
+
+
+def test_parsed_all_html():
+    parsed_all_html(250)
+
+
 # 单元测试
 def test():
     # test_find_between()
     # test_find_element_by_label()
-    test_parsed_html()
-
+    # test_parsed_html()
+    test_parsed_all_html()
 
 def main():
     s = 'sss'
