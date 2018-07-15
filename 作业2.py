@@ -4,8 +4,7 @@
 #
 #
 # 请直接在我的代码中更改/添加, 不要新建别的文件
-
-
+from client_ssl import get
 # 定义我们的 log 函数
 def log(*args, **kwargs):
     print(*args, **kwargs)
@@ -87,6 +86,20 @@ https://movie.douban.com/top250
 
 解析方式可以用任意手段，如果你没有想法，用字符串查找匹配比较好(find 特征字符串加切片)
 """
+
+
+def parsed_html(url):
+    # 接收一个网址
+    # 返回解析出的
+    # 1，电影名
+    # 2，分数
+    # 3，评价人数
+    # 4，引用语（比如第一部肖申克的救赎中的「希望让人自由。」）
+    # 标签找到元素
+    url = 'http://movie.douban.com/top250'
+    status_code, headers, body = get(url)
+
+
 
 
 # 作业 2.6
