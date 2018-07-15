@@ -143,7 +143,6 @@ def find_between(s, left, right):
     # 切右边的字符串, 找第一匹配的右字符
     ris = le + 30
     rstr = str[le: ris]
-    # print("rstr", rstr)
     ri = find2(rstr, rig)
     # 剩下的部分为 str = str[le + ri:]
     # print("ri")
@@ -155,8 +154,6 @@ def find_between(s, left, right):
     i = i + 1
     while i < 100:
         str = str[le + ri:]
-        # log('result', result)
-
         le = find2(str, lef) + len(lef)
         # 切右边的字符串, 找第一匹配的右字符
         ris = le + 30
@@ -180,7 +177,6 @@ def find_element_by_label(body, left_label, right_label):
     # left = left_label
     # right = right_label
     # element = find_between(body, left, right)
-    right_l = right_label
     now_str = body
 
     # 做多少次循环呢
@@ -245,11 +241,8 @@ def parsed_html(url):
     sorces = find_element_by_label(body, sorces_labels[0], sorces_labels[1])
     coments = find_element_by_label(body, coments_labels[0], coments_labels[1])
     inqs = find_element_by_label(body, inqs_labels[0], inqs_labels[1])
-    # log("inqs_labels[0]", inqs_labels[0], inqs_labels[1])
-    # log("m s c i", inqs)
     result = [1] * len(movies)
-    log("result  len\n", len(result))
-    # log("len", len(movies), len(sorces), len(coments), len(inqs))
+
     for i in range(len(movies)):
         m = movies[i]
         s = sorces[i]
@@ -260,7 +253,8 @@ def parsed_html(url):
         res = m + op + s + op + c + op + ins + op
         result[i] = res
         # log("res\n", res, i)
-    log("result ({}),\n url =({})".format(result, url))
+    # log("result ({}),\n url =({})".format(result, url))
+
     return result
 
 
@@ -285,8 +279,6 @@ def test_find_element_by_label():
 def test_parsed_html():
     url = 'http://movie.douban.com/top250'
     parsed_html(url)
-
-
 
 
 def test_find_between():
@@ -339,8 +331,8 @@ def parsed_all_html(n):
     i = 0
     while i < 6:
         rs = parsed_html(now_url)
-        now_url = now_url + str(25 * i)
-        log("第({})个, 长度({}),url =({})".format(i, len(rs), now_url))
+        now_url = url + str(25 * i)
+        log("第({})个, 长度({}),now_url =({})".format(i, len(rs), now_url))
         log("rs".format(rs))
         i += 1
 
@@ -355,6 +347,7 @@ def test():
     # test_find_element_by_label()
     # test_parsed_html()
     test_parsed_all_html()
+
 
 def main():
     s = 'sss'
