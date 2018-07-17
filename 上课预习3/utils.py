@@ -1,0 +1,19 @@
+# import time
+from time import *
+
+
+def log(*args, **kwargs):
+    # time.time() 返回 unix time
+    # 如何把 unix time 转换为普通人类可以看懂的格式呢？
+    format = '%Y/%m/%d %H:%M:%S'
+    value = time.localtime(int(time.time()))
+    dt = time.strftime(format, value)
+    print(dt, *args, **kwargs)
+
+
+def sleep_sec(sec):
+    s = sec
+    log("开始等待({})秒".format(sec))
+    time.sleep(sec)
+    log("等待结束")
+

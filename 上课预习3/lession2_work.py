@@ -5,7 +5,7 @@
 #
 # 请直接在我的代码中更改/添加, 不要新建别的文件
 from client_ssl import get
-
+from time import sleep
 
 # 定义我们的 log 函数
 def log(*args, **kwargs):
@@ -332,6 +332,7 @@ def parsed_all_html(n):
     while i < 6:
         rs = parsed_html(now_url)
         now_url = url + str(25 * i)
+        sleep(5)
         log("第({})个, 长度({}),now_url =({})".format(i, len(rs), now_url))
         log("rs".format(rs))
         i += 1
