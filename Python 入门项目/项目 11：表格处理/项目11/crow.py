@@ -2,6 +2,7 @@
 import urllib.request
 from utils import log
 
+
 def find2(s1, s2):
     """
     s1 s2 都是 str
@@ -82,11 +83,63 @@ def find_between(s, left, right):
     return rs
 
 
+def find_between_label(s, left_label, right_label, bytelen=30):
+    """
+    s, left, right 都是 str
+    具体用法参考下方的代码
+    """
+    # 1, 观察用法可以知道本函数的功能就是把 left 和 right 之间包含的字符串提取出来
+    # 2, 为了实现这个目的, 我们的想法应该是拿到 目标字符串 的开始和结束下标, 然后用 切片 的方式提取
+    # 3, 我们先定位到 left 的下标(使用 find2 函数), 加上 left 的长度就可以得到结果的开始下标(具体你要通过 log 的方式来尝试, 纸笔计算好)
+    # 4, 我们再定位到 right 的下标, 就可以切片出目标字符串
+    # 5, 返回目标字符串
+    # ps; 先找到左边的再匹配右边的
+    now_lines = s
+    bt_len = bytelen
+
+    # 查找当前页面一共有多少需要解析的元素 以左标签为参数
+    # 一次取出要解析的元素 放到rs 数组中
+    num = s.count(left_label)
+    i = 0
+    rs = []
+    while i < num:
+        # 匹配第一个字符串的位置left position
+        left_position = now_lines.find(left_label) + len(left_label)
+        # 切割需要 查找元素的位置的字符串
+        len_byts = left_position + bt_len
+        # 包含需要解析的元素的值
+        now_str = now_lines[left_position:len_byts]
+        right_position = now_str.find(right_label)
+        line = now_str[:right_position]
+        # 剩下的字符串为 now_lines
+        now_lines = now_lines[left_position + right_position:]
+        rs.append(line)
+
+        i += 1
+        log("i = ({})".format(i))
+
+    return rs
+
+
 def openurl(url):
     # 这里把 url 写死为豆瓣 top250 页面
-    url = 'https://movie.douban.com/top250'
+    # url = 'https://movie.douban.com/top250'
     # 下载页面, 得到的是一个 bytes 类型的变量 s
     s = urllib.request.urlopen(url).read()
     # 用 utf-8 编码把 s 转为字符串并返回
     content = s.decode('utf-8')
     return content
+
+
+def test():
+    url = 'http://www.mca.gov.cn/article/sj/tjbz/a/2017/201801/201801151447.html'
+    body = openurl(url)
+    left = '<td class=xl7026226>'
+    right = '</td>'
+    res = find_between_label(body, left, right)
+    print('debug res', res)
+    pass
+
+
+if __name__ == '__main__':
+    test()
