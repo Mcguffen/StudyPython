@@ -29,6 +29,7 @@ class Model(object):
     user = User()
     user.db_path() 返回 User.txt
     """
+
     @classmethod
     def db_path(cls):
         """
@@ -63,6 +64,7 @@ class Model(object):
         """
         用法如下，kwargs 是只有一个元素的 dict
         u = User.find_by(username='gua')
+        u = User.find_by(id=12)
         """
         log('kwargs, ', kwargs)
         k, v = '', ''
@@ -149,6 +151,7 @@ class User(Model):
     User 是一个保存用户数据的 model
     现在只有两个属性 username 和 password
     """
+
     def __init__(self, form):
         self.id = form.get('id', None)
         if self.id is not None:
@@ -160,6 +163,7 @@ class User(Model):
     def validate_login(self):
         # return self.username == 'gua' and self.password == '123'
         u = User.find_by(username=self.username)
+        log('deng lu de({})'.format(u))
         # us = User.all()
         # for u in us:
         #     if u.username == self.username and u.password == self.password:
@@ -179,11 +183,22 @@ class User(Model):
         # 找到dict里面的note
         pass
 
+    def find_by_name_and_password(self):
+        # 接收用户名与密码的字典
+        #
+        # username =
+        # u = User.find_by(username=self.username)
+        us = User.all()
+        for u in us:
+            if u.username == self.username and u.password == self.password:
+                return u
+
 
 class Message(Model):
     """
     Message 是用来保存留言的 model
     """
+
     def __init__(self, form):
         self.author = form.get('author', '')
         self.message = form.get('message', '')
@@ -195,11 +210,14 @@ def test():
     # log('users', u)
     form = dict(
         username='gua',
-        password='gua',
-        note='testnote',
+        # password='gua',
+        # note='testnote',
     )
     u = User(form)
-    u.save()
+
+    # u.save()
+    uc = User.find_by(password='gaa0sd')
+    log('uc({})'.format(uc))
     # u.save()
     # u.save()
     # u.save()
