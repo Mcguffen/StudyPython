@@ -12,7 +12,8 @@ session = {
     'session id': {
         'username': 'gua',
         '过期时间': '2.22 21:00:00'
-    }
+    },
+    'user_id': 0,
 }
 
 
@@ -43,6 +44,11 @@ def current_user(request):
     username = session.get(session_id, '【游客】')
     # username = request.cookies.get('user', '【游客】')
     return username
+
+
+def get_user_by_session(request):
+
+    pass
 
 
 def route_index(request):
@@ -82,14 +88,28 @@ def route_login(request):
     if request.method == 'POST':
         form = request.form()
         u = User.new(form)
+        # log('bebug*** login user profile({})'.format(u))
         if u.validate_login():
             # 设置一个随机字符串来当令牌使用
+            # 根据用户名和密码查用户id
+            log('bebug*** login user validate_login({})'.format(u.password))
+            now_user = User.find_by(password=u.password)
+            # log('bebug*** after login user ({})'.format(now_user))
+            # 在session里面设置用户id
             session_id = random_str()
             session[session_id] = u.username
+            session['user_id'] = now_user.id
+            # log('seesion usr_id({})'.format(session.get('user_id', '')))
             headers['Set-Cookie'] = 'user={}'.format(session_id)
             # 下面是把用户名存入 cookie 中
             # headers['Set-Cookie'] = 'user={}'.format(u.username)
             result = '登录成功'
+
+            # 跳转到profile
+            log('request', request)
+            rs = route_profile(request)
+            return rs
+
         else:
             result = '用户名或者密码错误'
     else:
@@ -97,6 +117,7 @@ def route_login(request):
     body = template('login.html')
     body = body.replace('{{result}}', result)
     body = body.replace('{{username}}', username)
+    log('username({})'.format(username))
     header = response_with_headers(headers)
     r = header + '\r\n' + body
     log('login 的响应', r)
@@ -167,26 +188,40 @@ def route_profile(request):
     """
     消息页面的路由函数
     """
-    username = current_user(request)
+    log('inner profile({})'.format(request))
+    # username = current_user(request)
+    # log("session username({})".format(session.get('session id').get('username')))
+    username = session.get('session id').get('username')
+    log("session({})".format(session))
     if username == '【游客】':
-        # 未登录 跳转到登录页面
+        # # 如果没登录, 返回 302 为状态码来 重定向到登录界面
+        # # 当返回 302 响应的时候, 必须在 HTTP 头部加一个 Location 字段并且设置值为你想要定向的页面
         log("**debug, route profile 未登录")
+        header = 'HTTP/1.1 302 Moved Momently\r\nContent-Type: text/html\r\nLocation: http://localhost:3000\r\n'
+        # 好吧只返回header
+        # body = template('login.html')
+        # body.replace('{{username}}', username)
+        body = template('302_status.html')
         pass
     else:
+        #
+        user_id = session.get('user_id')
+        now_user = User.find_by(id=user_id)
         # 登录了之后跳转到profile页面
-        log("***debug , route profile 已登录")
-    log('本次请求的 method', request.method)
-    if request.method == 'POST':
-        form = request.form()
-        msg = Message.new(form)
-        log('post', form)
-        message_list.append(msg)
-        # 应该在这里保存 message_list
-    header = 'HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n'
-    # body = '<h1>消息版</h1>'
-    body = template('html_basic.html')
-    msgs = '<br>'.join([str(m) for m in message_list])
-    body = body.replace('{{messages}}', msgs)
+        log("***debug , route profile 已登录用户({})".format(now_user))
+        # 根据用户名获取用户
+        # username userid usernote 可以用函数处理
+        #
+
+        header = 'HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n'
+        # body = '<h1>消息版</h1>'
+        body = template('profile.html')
+        # msgs = '<br>'.join([str(m) for m in message_list])
+        body = body.replace('{{username}}', now_user.username)
+        body = body.replace('{{userid}}', str(now_user.id))
+        #
+        log("now_user.note({})".format(now_user.note))
+        body = body.replace('{{usernote}}', str(now_user.note))
 
     r = header + '\r\n' + body
     return r.encode(encoding='utf-8')
@@ -204,3 +239,16 @@ route_dict = {
     '/messages': route_message,
     '/profile': route_profile,
 }
+
+
+def test_route_profile():
+    route_profile()
+    pass
+
+
+def test():
+    pass
+
+
+if __name__ == '__main__':
+    test()

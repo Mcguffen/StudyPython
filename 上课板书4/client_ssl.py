@@ -153,7 +153,7 @@ def get(url):
     s = socket_by_protocol(protocol)
     s.connect((host, port))
 
-    request = 'GET {} HTTP/1.1\r\nHost: {}\r\nCookie: user=asaflglfwskrs9rd\r\nConnection: close\r\n\r\n'.format(path, host)
+    request = 'GET {} HTTP/1.1\r\nHost: {}\r\nConnection: close\r\n\r\n'.format(path, host)
     encoding = 'utf-8'
     s.send(request.encode(encoding))
 
