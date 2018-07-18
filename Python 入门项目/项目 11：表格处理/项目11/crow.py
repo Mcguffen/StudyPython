@@ -116,13 +116,12 @@ def find_between_label(s, left_label, right_label, bytelen=30):
         rs.append(line)
 
         i += 1
-        log("i = ({})".format(i))
+        # log("i = ({})".format(i))
 
     return rs
 
 
 def openurl(url):
-    # 这里把 url 写死为豆瓣 top250 页面
     # url = 'https://movie.douban.com/top250'
     # 下载页面, 得到的是一个 bytes 类型的变量 s
     s = urllib.request.urlopen(url).read()
@@ -131,13 +130,63 @@ def openurl(url):
     return content
 
 
-def test():
+def array_to_dict(array):
+    # 接收数组
+    # ['110000', '北京市', '110101', '东城区', ]
+    # 返回dict = {
+    #   '北京市' : '110000' ,
+    #   '东城区' : '110101' ,
+    # }
+    dic = {}
+    if array is None:
+        return dic
+    lens = len(array)
+
+    # 如果lens为奇数 进行出错处理
+
+    # 取出当前数组的值
+    # 偶数为key 奇数为value
+
+    i = 0
+    while i < lens:
+        k = array[i + 1]
+        v = array[i]
+        dic[k] = v
+        i += 2
+    log('len dic = ({})'.format(len(dic)))
+    return dic
+
+
+def test_array_to_dict():
+    url = 'http://www.mca.gov.cn/article/sj/tjbz/a/2017/201801/201801151447.html'
+    body = openurl(url)
+    left = '<td class=xl7026226>'
+    right = '</td>'
+    log('start ')
+    res = find_between_label(body, left, right)
+
+    dic = array_to_dict(res)
+    log('end')
+    k1 = '北京市'
+    k2 = '东城区'
+
+    log('debug len dic({}) 东城区 =({}) 北京市= ({})'.format(len(dic), dic[k2], dic[k1]))
+    pass
+
+
+def test_find_between_label():
     url = 'http://www.mca.gov.cn/article/sj/tjbz/a/2017/201801/201801151447.html'
     body = openurl(url)
     left = '<td class=xl7026226>'
     right = '</td>'
     res = find_between_label(body, left, right)
     print('debug res', res)
+    pass
+
+
+def test():
+    # test_find_between_label()
+    test_array_to_dict()
     pass
 
 
