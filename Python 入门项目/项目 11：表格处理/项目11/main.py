@@ -22,14 +22,82 @@ def load(path):
         return json.loads(s)
 
 
+def find_value_by_code(code=0):
+    # 接受一个code
+    # 返回对应的字符串
+    path = 'info-dict.txt'
+    info_dict = load(path)
+    for k, v in info_dict.items():
+        key, value = k, v
+        if value == code:
+            log('key', key)
+    # value = info_dict.get(code)
+
+    return key
+
+
+def code_with_none(supple_name):
+    # 接受一个字符 返回处理后的字符
+    # 例如 山西
+    # 返回 山西省
+    # info_dict = load('info-dict.txt')
+    borough_supple = ['区', '县', '市', '省']
+    info_dict = load('info-dict.txt')
+
+    i = 0
+    while i < len(borough_supple):
+        supple_ed_name = supple_name + str(borough_supple[i])
+        code = info_dict.get(supple_ed_name)
+        log('code***', code, i)
+        if code is None:
+            log('code', code, i)
+            # v = find_value_by_code(code)
+            i = i + 1
+            # return code
+            continue
+
+        else:
+            log('code### ', code, i)
+            i = i + 1
+            v = find_value_by_code(code)
+            return v
+
+        i = i + 1
+    log('code end', code, i)
+    return None
+
+
 def find_borough_code(borough_name):
     # 根据传入的行政区名字
     # 返回行政代码
+    borough_supple = ['区', '县', '市', '省']
+    info_dict = load('info-dict.txt')
     code = None
     name = borough_name
     name = '陕西'
+
+    # # 该函数用于处理函数内部dict keyerroer的问题
+    # def code_with_none(supple_name):
+    #     # 接受一个字符 返回处理后的字符
+    #     # 例如 山西
+    #     # 返回 山西省
+    #     # info_dict = load('info-dict.txt')
+    #
+    #     for i in len(borough_supple):
+    #         supple_ed_name = supple_name + str(borough_supple[i])
+    #         code = info_dict.get(supple_ed_name)
+    #         if code is not None:
+    #             return code
+    #
+    #     t.get('d')
+    #     code = info_dict.get(supple_name)
+    #     log('debug code with none', borough_supple)
+    #
+    #     pass
+
     # 如果数据 陕西 补足为  陕西区 省 市 .. 查找行政代码
     # 如果没有 返回错误信息
+    code_with_none(name)
     borough_supple = ['区', '县', '市', '省']
     info_dict = load('info-dict.txt')
 
@@ -39,9 +107,9 @@ def find_borough_code(borough_name):
     # t.get('d')
     code = info_dict.get(name)
     if code is None:
-
+        code_with_none(name)
         log('time')
-    log('code({})'.format(code))
+    log('code({}) find_borough_code)'.format(code))
     pass
 
 
