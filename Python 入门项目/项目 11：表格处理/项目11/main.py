@@ -43,7 +43,7 @@ def code_with_none(supple_name):
     # info_dict = load('info-dict.txt')
     borough_supple = ['区', '县', '市', '省']
     info_dict = load('info-dict.txt')
-
+    # jiushz1
     i = 0
     while i < len(borough_supple):
         supple_ed_name = supple_name + str(borough_supple[i])
