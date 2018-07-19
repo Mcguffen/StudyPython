@@ -4,6 +4,7 @@ import urllib.request
 import time
 import json
 from utils import log
+from csv_load import load_csv
 
 
 def save(data, path):

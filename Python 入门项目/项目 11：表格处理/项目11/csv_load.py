@@ -16,8 +16,8 @@ def load_csv():
     # filename = 'test-info.csv'
     with open(filename, 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
-        header_row = next(reader)
-        log('header_row({})'.format(header_row))
+        # header_row = next(reader)
+        # log('header_row({})'.format(header_row))
         # for row in reader:
         #     log('all({}) type({})'.format(row, type(row)))
         lines = []
