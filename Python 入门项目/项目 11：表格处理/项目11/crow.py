@@ -67,7 +67,11 @@ def find_between_label(s, left_label, right_label, bytelen=30):
         line = now_str[:right_position]
         # 剩下的字符串为 now_lines
         now_lines = now_lines[left_position + right_position:]
-        rs.append(line)
+        if line == '':
+            i = i + 1
+            continue
+        else:
+            rs.append(line)
 
         i += 1
         # log("i = ({})".format(i))
@@ -108,6 +112,7 @@ def array_to_dict(array):
     while i < lens:
         k = array[i + 1]
         v = array[i]
+        log('k =({}) v = ({}) \n'.format(k, v))
         dic[k] = v
         i += 2
 
@@ -123,7 +128,7 @@ def test_array_to_dict():
     url = 'http://www.mca.gov.cn/article/sj/tjbz/a/2017/201801/201801151447.html'
     body = openurl(url)
     left = '<td class=xl7026226>'
-    right = '</td>'
+    right = '<'
     # log('start find_between_label')
     res = find_between_label(body, left, right)
     # log('after find_between_label')

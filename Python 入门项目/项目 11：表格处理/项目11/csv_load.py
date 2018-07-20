@@ -11,7 +11,7 @@ def log(*args, **kwargs):
     print(dt, *args, **kwargs)
 
 
-def load_csv():
+def load_csv(filename):
     filename = '11-info.csv'
     # filename = 'test-info.csv'
     with open(filename, 'r', encoding='utf-8') as f:
@@ -26,12 +26,12 @@ def load_csv():
             # 初始化line 每次的line不一样
             line = [1] * 4
             t = order_num, trade_name, producer, price
-            print('before line({})', line)
+            # print('before line({})', line)
             # 将当前数据赋值给 line
             for i in range(len(t)):
                 line[i] = t[i]
             # log("after line({}) i =({})".format(line))
-            print('after line({})', line)
+            # print('after line({})', line)
             # 将line添加到lines里面去
             lines.append(line)
             print('line', hex(id(line)))
@@ -41,17 +41,15 @@ def load_csv():
     return lines
 
 
-def write_csv():
+def write_csv(arrays, filename):
     # 接收一个数组
-    datas = [['name', 'age'],
-             ['Bob', 14],
-             ['Tom', 23],
-             ['Jerry', '18']]
-    filename = 'test-info.csv'
+    write_datas = arrays
+    # filename = 'after-11-info.csv'
+    log("arrays len({})".format(len(arrays)))
     with open(filename, 'a', encoding='utf-8', newline='') as f:
         # newline=''如果不写这个属性 默认为写入的数据空一行
         writer = csv.writer(f)
-        for row in datas:
+        for row in write_datas:
             writer.writerow(row)
 
 
@@ -63,6 +61,6 @@ def fin_physical_address(obj):
 
 
 if __name__ == '__main__':
-    load_csv()
-    # write_csv()
-
+    # load_csv()
+    #  write_csv()
+    pass
