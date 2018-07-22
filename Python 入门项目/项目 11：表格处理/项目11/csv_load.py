@@ -35,9 +35,9 @@ def load_csv(filename):
             # 将line添加到lines里面去
             lines.append(line)
             print('line', hex(id(line)))
-            log("now lines({}) len lines =({})".format(lines, len(lines)))
+            # log("now lines({}) len lines =({})".format(lines, len(lines)))
 
-    log('lines({})'.format(lines))
+    # log('lines({})'.format(lines))
     return lines
 
 

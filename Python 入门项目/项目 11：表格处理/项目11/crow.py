@@ -109,9 +109,8 @@ def array_to_dict(array):
     # 偶数为key 奇数为value
 
     i = 0
-    while i < lens:
-        k = array[i + 1]
-        v = array[i]
+    while i < lens - 1:
+        k, v = array[i], array[i + 1]
         log('k =({}) v = ({}) \n'.format(k, v))
         dic[k] = v
         i += 2
@@ -134,8 +133,8 @@ def test_array_to_dict():
     # log('after find_between_label')
     dic = array_to_dict(res)
     # log('end')
-    k1 = '北京市'
-    k2 = '东城区'
+    k1 = 110000
+    # k2 = 110001
 
     log('debug len dic({}) 东城区 =({}) 北京市= ({})'.format(len(dic), dic[k2], dic[k1]))
     # log('end  test_find_between_label')

@@ -27,19 +27,54 @@ def find_value_by_code(code):
     # 返回对应的字符串
     path = 'info-dict.txt'
     info_dict = load(path)
+
     for k, v in info_dict.items():
         key, value = k, v
         # log('key****({}) value({}) '.format(key, value))
         if key is None:
             break
 
-        if int(value) == int(code):
+        if key == code:
             # log('key**** ', key)
-            return key
+            return value
     # value = info_dict.get(code)
     # log('key', k, v, code)
 
     return key
+
+
+def get_key(dict, value):
+    return [k for k, v in dict.items() if v == value]
+
+
+def find_code_by_value(supple_name):
+    borough_supple = ['区', '县', '市', '省']
+    info_dict = load('info-dict.txt')
+
+    #  例如 陕西  "陕西省": "610000",
+    #  返回 陕西省, 返回610000 否则返回none
+    supple_name = '陕西'
+
+    i = 0
+    while i < len(borough_supple):
+        supple_ed_name = supple_name + str(borough_supple[i])
+        need_value = ''
+        codes = get_key(info_dict, supple_ed_name)
+        log('codes({})'.format(codes))
+        # for k, v in info_dict.items():
+        #     key, value = k, v
+        #     if supple_ed_name == value:
+        #         log('k ({}) v({}) supple_ed_name({})'.format(k, v, supple_ed_name))
+        #         need_value = key
+
+        if need_value is None:
+            i = i + 1
+            continue
+
+        else:
+            # log('code### ', code, i)
+            return need_value
+    return None
 
 
 def code_with_none(supple_name):
@@ -55,18 +90,20 @@ def code_with_none(supple_name):
     i = 0
     while i < len(borough_supple):
         supple_ed_name = supple_name + str(borough_supple[i])
-        code = info_dict.get(supple_ed_name)
-        # log('code***', code, i)
-        if code is None:
+        #
+        keys = get_key(info_dict, supple_ed_name)
+        log('keys = ({})'.format(keys))
+
+        # 如果没找到
+        if keys is None:
             i = i + 1
             continue
-
         else:
-            # log('code### ', code, i)
-            return code
+            return keys
 
         i = i + 1
-    log('code end', code, i)
+
+    log('keys end', keys, i)
     return None
 
 
@@ -83,7 +120,7 @@ def find_borough_code(borough_name):
     code = info_dict.get(name)
     if code is None:
         code = code_with_none(name)
-        log('time')
+        log('time({})'.format(code))
     # log('code({}) find_borough_code)'.format(code))
 
     return code
@@ -96,14 +133,14 @@ def find_borough_name(borough):
     ten_thousand = 10000
     local_proceder = borough
     code = find_borough_code(local_proceder)
-    code = int(code)
+    # code = int(code)
 
     # 根据行政code 识别本省的 行政code
-    province_code = int(code / ten_thousand) * ten_thousand
-    province = find_value_by_code(province_code)
+    # province_code = int(code / ten_thousand) * ten_thousand
+    # province = find_value_by_code(province_code)
     # log('debug find_borough_name', code, type(ten_thousand), province_code, province)
 
-    return province
+    # return province
 
 
 def add_new_colum(file, new_colum):
