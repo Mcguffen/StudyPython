@@ -4,6 +4,7 @@ var timeString = function(timestamp) {
     return t
 }
 
+
 var todoTemplate = function(todo) {
     var title = todo.title
     var id = todo.id

@@ -21,6 +21,7 @@ class Weibo(Model):
     def comments(self):
         return Comment.find_all(weibo_id=self.id)
 
+
     @classmethod
     def update(cls, id, form):
         t = cls.find(id)

@@ -1,6 +1,7 @@
 from models import Model
 
 
+
 class User(Model):
     """
     User 是一个保存用户数据的 model

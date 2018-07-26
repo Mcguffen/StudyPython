@@ -4,6 +4,7 @@
     return t
 }
 
+
 var commentsTemplate = function(comments) {
     var html = ''
     for(var i = 0; i < comments.length; i++) {

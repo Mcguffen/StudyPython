@@ -6,6 +6,7 @@ var e = function(sel) {
     return document.querySelector(sel)
 }
 
+
 /*
  ajax 函数
 */

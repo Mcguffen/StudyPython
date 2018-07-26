@@ -14,6 +14,7 @@ def log(*args, **kwargs):
         print(dt, *args, file=f, **kwargs)
 
 
+
 # __file__ 就是本文件的名字
 # 得到用于加载模板的目录
 path = '{}/templates/'.format(os.path.dirname(__file__))

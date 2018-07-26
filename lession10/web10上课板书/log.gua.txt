@@ -815,9 +815,12 @@ __main()
 21:48:54 kwargs,  {'weibo_id': 3} <class 'dict'>
 21:48:54 kwargs,  {'weibo_id': 8} <class 'dict'>
 21:48:54 kwargs,  {'weibo_id': 9} <class 'dict'>
-21:48:54 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+21:48:54 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 [
   {
     "id": 3,
@@ -1225,9 +1228,12 @@ __main()
 23:07:16 deug response***({'/static': <function route_static at 0x000002097B1B17B8>, '/api/todo/all': <function all at 0x000002097B1B9158>, '/api/todo/add': <function add at 0x000002097B1B91E0>, '/api/todo/delete': <function delete at 0x000002097B1B9400>, '/api/todo/update': <function update at 0x000002097B1B9488>, '/api/weibo/all': <function all_weibo at 0x000002097B1B9510>, '/api/weibo/add': <function add_weibo at 0x000002097B1B9598>, '/api/weibo/delete': <function delete_weibo at 0x000002097B1B9620>, '/api/weibo/update': <function update_weibo at 0x000002097B1B96A8>, '/login': <function route_login at 0x000002097B1B1A60>, '/register': <function route_register at 0x000002097B1B1AE8>, '/': <function main_index at 0x000002097B1B9048>, '/todo/index': <function index at 0x000002097B1B90D0>, '/weibo/index': <function index at 0x000002097B1B1C80>})
 23:07:16 完整请求
 23:07:16 请求结束
-23:07:16 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:07:16 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 [
   {
     "id": 2,
@@ -1628,9 +1634,12 @@ __main()
 23:07:23 kwargs,  {'weibo_id': 3} <class 'dict'>
 23:07:23 kwargs,  {'weibo_id': 8} <class 'dict'>
 23:07:23 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:07:23 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:07:23 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 [
   {
     "id": 3,
@@ -2061,9 +2070,12 @@ var apiWeiboUpdate = function(form, callback) {
 23:09:10 kwargs,  {'weibo_id': 3} <class 'dict'>
 23:09:10 kwargs,  {'weibo_id': 8} <class 'dict'>
 23:09:10 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:09:10 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:09:10 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 [
   {
     "id": 3,
@@ -2507,9 +2519,13 @@ __main()
 23:10:18 kwargs,  {'weibo_id': 3} <class 'dict'>
 23:10:18 kwargs,  {'weibo_id': 8} <class 'dict'>
 23:10:18 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:10:19 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:10:19 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
+
 [
   {
     "id": 3,
@@ -2937,9 +2953,12 @@ __main()
 23:15:16 kwargs,  {'weibo_id': 3} <class 'dict'>
 23:15:16 kwargs,  {'weibo_id': 8} <class 'dict'>
 23:15:16 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:15:16 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:15:16 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 [
   {
     "id": 3,
@@ -3029,9 +3048,12 @@ ut: (1532618122)
 >
 )
 23:15:22 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:15:22 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:15:22 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 {
   "id": 9,
   "title": "三分到手的三分",
@@ -3410,9 +3432,12 @@ __main()
 23:37:47 kwargs,  {'weibo_id': 3} <class 'dict'>
 23:37:47 kwargs,  {'weibo_id': 8} <class 'dict'>
 23:37:47 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:37:47 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:37:47 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 [
   {
     "id": 3,
@@ -3505,9 +3530,12 @@ ut: (1532619472)
 >
 )
 23:37:52 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:37:52 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:37:52 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 {
   "id": 9,
   "title": "asdasdsad",
@@ -3890,9 +3918,12 @@ var apiWeiboUpdate = function(form, callback) {
 23:42:38 kwargs,  {'weibo_id': 3} <class 'dict'>
 23:42:38 kwargs,  {'weibo_id': 8} <class 'dict'>
 23:42:38 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:42:38 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:42:38 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 [
   {
     "id": 3,
@@ -3989,9 +4020,12 @@ ut: (1532619780)
 >
 )
 23:43:00 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:43:00 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:43:00 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 {
   "id": 9,
   "title": "改变了title",
@@ -4373,9 +4407,12 @@ __main()
 23:44:59 kwargs,  {'weibo_id': 3} <class 'dict'>
 23:44:59 kwargs,  {'weibo_id': 8} <class 'dict'>
 23:44:59 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:44:59 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:44:59 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 [
   {
     "id": 3,
@@ -4471,9 +4508,12 @@ ut: (1532619935)
 >
 )
 23:45:35 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:45:35 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:45:35 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 {
   "id": 9,
   "title": "撒大苏打倒萨",
@@ -4854,9 +4894,12 @@ var apiWeiboUpdate = function(form, callback) {
 23:46:55 kwargs,  {'weibo_id': 3} <class 'dict'>
 23:46:55 kwargs,  {'weibo_id': 8} <class 'dict'>
 23:46:55 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:46:55 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:46:55 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 [
   {
     "id": 3,
@@ -4951,9 +4994,12 @@ ut: (1532620025)
 >
 )
 23:47:05 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:47:05 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:47:05 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 {
   "id": 9,
   "title": "发达的省份反倒是",
@@ -5332,9 +5378,12 @@ __main()
 23:49:42 kwargs,  {'weibo_id': 3} <class 'dict'>
 23:49:42 kwargs,  {'weibo_id': 8} <class 'dict'>
 23:49:42 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:49:42 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:49:42 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 [
   {
     "id": 3,
@@ -5429,9 +5478,12 @@ ut: (1532620201)
 >
 )
 23:50:01 kwargs,  {'weibo_id': 9} <class 'dict'>
-23:50:01 后端返回的数据(HTTP/1.1 200 OK
-Content-Type: application/json
-
+23:50:01 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
 {
   "id": 9,
   "title": "辉煌啊",
@@ -5450,3 +5502,5 @@ Content-Type: application/json
   "ut": 1532620201,
   "comments": []
 }
+23:56:56 完整请求
+23:56:56 请求结束
