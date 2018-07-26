@@ -1,0 +1,886 @@
+21:43:52 完整请求
+21:43:52 请求结束
+21:43:52 请求结束
+21:43:53 完整请求
+21:43:53 请求结束
+21:43:53 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:43:53 path and query /api/weibo/update {} {"id":"9","title":"asasdadsasd"}
+21:43:53 deug response***({'/static': <function route_static at 0x03C86978>, '/api/todo/all': <function all at 0x03C86ED0>, '/api/todo/add': <function add at 0x03C86F60>, '/api/todo/delete': <function delete at 0x03C8E0C0>, '/api/todo/update': <function update at 0x03C8E108>, '/api/weibo/all': <function all_weibo at 0x03C8E150>, '/api/weibo/add': <function add_weibo at 0x03C8E198>, '/api/weibo/delete': <function delete_weibo at 0x03C8E1E0>, '/api/weibo/update': <function update_weibo at 0x03C8E228>, '/login': <function route_login at 0x03C86B28>, '/register': <function route_register at 0x03C86B70>, '/': <function main_index at 0x03C86CD8>, '/todo/index': <function index at 0x03C86E88>, '/weibo/index': <function index at 0x03C86C48>})
+21:43:53 debug 更新*****(<built-in function id>)
+21:43:53 kwargs,  {'id': 9} <class 'dict'>
+21:43:53 debug weibo init form = ({}) content =() 
+21:43:53 debug weibo init form = ({}) content =() 
+21:43:53 debug weibo init form = ({}) content =() 
+21:43:53 debug weibo init form = ({}) content =()
+21:44:47 完整请求
+21:44:47 请求结束
+21:45:21 完整请求
+21:45:21 请求结束
+21:45:21 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:45:21 path and query /weibo/index {} 
+21:45:21 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:45:21 响应
+ HTTP/1.1 200 OK
+Content-Type: text/html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>weibo</title>
+    <style>
+        .comment {
+            border: 1px red solid;
+        }
+        .comment-list {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input id="id-input-weibo">
+        <button id="id-button-add-weibo">发表微博</button>
+    </div>
+    <div class="weibo-list"
+         data-method="get"
+         data-path="/api/weibo/all"
+         data-template="xxtemplate"
+    >
+        <div class="comment">
+
+        </div>
+        <div class="comment-form">
+            <input type="hidden" name="weibo_id" value="">
+            <input name="content">
+            <br>
+            <button class="comment-add">添加评论</button>
+        </div>
+    </div>
+    <script src='/static?file=gua.js'></script>
+    <script src='/static?file=weibo.js'></script>
+
+
+</body>
+</html>
+21:45:21 完整请求
+21:45:21 请求结束
+21:45:21 完整请求
+21:45:21 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:45:21 请求结束
+21:45:21 path and query /static {'file': 'gua.js'} 
+21:45:21 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:45:21 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:45:21 path and query /static {'file': 'weibo.js'} 
+21:45:21 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:45:21 响应
+ HTTP/1.1 200 OK
+
+var log = function() {
+    console.log.apply(console, arguments)
+}
+
+var e = function(sel) {
+    return document.querySelector(sel)
+}
+
+/*
+ ajax 函数
+*/
+var ajax = function(method, path, data, responseCallback) {
+    var r = new XMLHttpRequest()
+    // 设置请求方法和请求地址
+    r.open(method, path, true)
+    // 设置发送的数据的格式为 application/json
+    // 这个不是必须的
+    r.setRequestHeader('Content-Type', 'application/json')
+    // 注册响应函数
+    r.onreadystatechange = function() {
+        if(r.readyState === 4) {
+            // r.response 存的就是服务器发过来的放在 HTTP BODY 中的数据
+            responseCallback(r.response)
+        }
+    }
+    // 把数据转换为 json 格式字符串
+    data = JSON.stringify(data)
+    // 发送请求
+    r.send(data)
+}
+
+// TODO API
+// 获取所有 todo
+var apiTodoAll = function(callback) {
+    var path = '/api/todo/all'
+    ajax('GET', path, '', callback)
+}
+
+// 增加一个 todo
+var apiTodoAdd = function(form, callback) {
+    var path = '/api/todo/add'
+    log('form', form)
+    ajax('POST', path, form, callback)
+}
+
+// 删除一个 todo
+var apiTodoDelete = function(id, callback) {
+    var path = '/api/todo/delete?id=' + id
+    ajax('GET', path, '', callback)
+    //    get(path, callback)
+}
+
+// 更新一个 todo
+var apiTodoUpdate = function(form, callback) {
+    var path = '/api/todo/update'
+    ajax('POST', path, form, callback)
+    //    post(path, form, callback)
+}
+
+// load weibo all
+var apiWeiboAll = function(callback) {
+    var path = '/api/weibo/all'
+    ajax('GET', path, '', callback)
+}
+
+// 增加一个 weibo add
+var apiWeiboAdd = function(form, callback) {
+    var path = '/api/weibo/add'
+    log('前端发送到数据from =', form)
+    ajax('POST', path, form, callback)
+}
+
+// 删除一个 weibo
+var apiWeiboDelete = function(id, callback) {
+    var path = '/api/weibo/delete?id=' + id
+    ajax('GET', path, '', callback)
+    //    get(path, callback)
+}
+
+// 更新一个 todo
+var apiWeiboUpdate = function(form, callback) {
+    var path = '/api/weibo/update'
+    ajax('POST', path, form, callback)
+    //    post(path, form, callback)
+}
+
+21:45:21 响应
+ HTTP/1.1 200 OK
+
+﻿var timeString = function(timestamp) {
+    t = new Date(timestamp * 1000)
+    t = t.toLocaleTimeString()
+    return t
+}
+
+var commentsTemplate = function(comments) {
+    var html = ''
+    for(var i = 0; i < comments.length; i++) {
+        var c = comments[i]
+        var t = `
+            <div>
+                ${c.content}
+            </div>
+        `
+        html += t
+    }
+    return html
+}
+
+var delete_element = function () {
+    //传入元素的id
+    //删除元素
+
+}
+
+var WeiboTemplate = function(Weibo) {
+    var content = Weibo.content
+    var titile = Weibo.title
+    var id = Weibo.id
+    var comments = commentsTemplate(Weibo.comments)
+    // 为什么我获取不到data的值
+    var t = `
+        <div class='weibo-cell' id='weibo-${id}' data-id=${id}>
+            <div>
+                [WEIBO]: ${content}
+            </div>
+            <button class="weibo-delete">删除微博</button>
+            <button class="weibo-edit">edit</button>
+            <div class="comment-list">
+                ${comments}
+            </div>
+            <div class="comment-form">
+                <input type="hidden" name="weibo_id" value="">
+                <input name="content">
+                <br>
+                <button class="comment-add">添加评论</button>
+            </div>
+        </div>
+    `
+    return t
+    /*
+    上面的写法在 python 中是这样的
+    t = """
+    <div class="Weibo-cell">
+        <button class="Weibo-delete">删除</button>
+        <span>{}</span>
+    </div>
+    """.format(Weibo)
+    */
+}
+
+var insertWeibo = function(Weibo) {
+    var WeiboCell = WeiboTemplate(Weibo)
+    // 插入 Weibo-list
+    var WeiboList = e('.weibo-list')
+    WeiboList.insertAdjacentHTML('beforeend', WeiboCell)
+}
+
+var insertEditForm = function(cell) {
+    var form = `
+        <div class='weibo-edit-form'>
+            <input class="weibo-edit-input">
+            <button class='weibo-update'>更新</button>
+        </div>
+    `
+    cell.insertAdjacentHTML('beforeend', form)
+}
+
+var loadWeibos = function() {
+    // 调用 ajax api 来载入数据
+    apiWeiboAll(function(r) {
+        // console.log('load all', r)
+        // 解析为 数组
+        var Weibos = JSON.parse(r)
+        // 循环添加到页面中
+        for(var i = 0; i < Weibos.length; i++) {
+            var Weibo = Weibos[i]
+            insertWeibo(Weibo)
+        }
+    })
+}
+
+var bindEventWeiboAdd = function() {
+    var b = e('#id-button-add-weibo')
+    // 注意, 第二个参数可以直接给出定义函数
+    b.addEventListener('click', function(){
+        var input = e('#id-input-weibo')
+        var title = input.value
+        log('click add', title)
+        var content = input.value
+        var form = {
+            'title': title,
+            'content': content,
+        }
+        apiWeiboAdd(form, function(r) {
+            // 收到返回的数据, 插入到页面中
+            var Weibo = JSON.parse(r)
+            insertWeibo(Weibo)
+        })
+    })
+}
+
+var bindEventWeiboDelete = function() {
+    var WeiboList = e('.weibo-list')
+    // 注意, 第二个参数可以直接给出定义函数
+    WeiboList.addEventListener('click', function(event){
+        var self = event.target
+        log('点击了delete', self, self.parentElement)
+        if(self.classList.contains('weibo-delete')){
+            // 删除这个 Weibo
+            var WeiboCell = self.parentElement
+            log('删除的dataset id=', self.parentElement, '删除自己', self)
+            var Weibo_id = WeiboCell.dataset.id
+            apiWeiboDelete(Weibo_id, function(r){
+                log('删除成功', Weibo_id)
+                WeiboCell.remove()
+            })
+        }
+    })
+}
+
+var bindEventWeiboEdit = function() {
+    var WeiboList = e('.weibo-list')
+    // 注意, 第二个参数可以直接给出定义函数
+    WeiboList.addEventListener('click', function(event){
+        var self = event.target
+        log('点击了deit')
+        if(self.classList.contains('weibo-edit')){
+            // 删除这个 Weibo
+            var WeiboCell = self.parentElement
+            insertEditForm(WeiboCell)
+        }
+    })
+}
+
+
+var bindEventWeiboUpdate = function() {
+    var WeiboList = e('.weibo-list')
+    // 注意, 第二个参数可以直接给出定义函数
+    WeiboList.addEventListener('click', function(event){
+        var self = event.target
+        if(self.classList.contains('weibo-update')){
+            //
+            var editForm = self.parentElement
+            // querySelector 是 DOM 元素的方法
+            // document.querySelector 中的 document 是所有元素的祖先元素
+            var input = editForm.querySelector('.weibo-edit-input')
+            log('点击了 update ', input)
+            var title = input.value
+            // 用 closest 方法可以找到最近的直系父节点
+            var WeiboCell = self.closest('.weibo-cell')
+            var Weibo_id = WeiboCell.dataset.id
+            var form = {
+                'id': Weibo_id,
+                'title': title,
+            }
+            apiWeiboUpdate(form, function(r){
+                log('更新成功', Weibo_id)
+                var Weibo = JSON.parse(r)
+                var selector = '#weibo-' + Weibo.id
+                var WeiboCell = e(selector)
+                var titleSpan = WeiboCell.querySelector('.weibo-title')
+                titleSpan.innerHTML = Weibo.title
+//                WeiboCell.remove()
+            })
+        }
+    })
+}
+
+var bindEvents = function() {
+    bindEventWeiboAdd()
+    bindEventWeiboDelete()
+    bindEventWeiboEdit()
+    bindEventWeiboUpdate()
+}
+
+var __main = function() {
+    bindEvents()
+    loadWeibos()
+}
+
+__main()
+
+21:45:21 完整请求
+21:45:21 请求结束
+21:45:21 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:45:21 path and query /api/weibo/all {} 
+21:45:21 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:45:21 debug weibo init form = ({}) content =() 
+21:45:21 debug weibo init form = ({}) content =() 
+21:45:21 debug weibo init form = ({}) content =() 
+21:45:21 kwargs,  {'weibo_id': 3} <class 'dict'>
+21:45:21 kwargs,  {'weibo_id': 8} <class 'dict'>
+21:45:21 kwargs,  {'weibo_id': 9} <class 'dict'>
+21:45:21 后端返回的数据(HTTP/1.1 200 OK
+
+Content-Type: application/json
+
+
+
+[
+  {
+    "id": 3,
+    "title": "",
+    "content": "hahaha",
+    "user_id": 1,
+    "comments": [
+      {
+        "id": 6,
+        "content": "123",
+        "weibo_id": 3,
+        "user_id": 1
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "我就是 爱音乐",
+    "content": "我就是 爱音乐",
+    "comments": []
+  },
+  {
+    "id": 9,
+    "title": "没有什么废话啊",
+    "content": "没有什么废话啊",
+    "comments": []
+  }
+])
+21:45:21 响应
+ HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+  {
+    "id": 3,
+    "title": "",
+    "content": "hahaha",
+    "user_id": 1,
+    "comments": [
+      {
+        "id": 6,
+        "content": "123",
+        "weibo_id": 3,
+        "user_id": 1
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "我就是 爱音乐",
+    "content": "我就是 爱音乐",
+    "comments": []
+  },
+  {
+    "id": 9,
+    "title": "没有什么废话啊",
+    "content": "没有什么废话啊",
+    "comments": []
+  }
+]
+21:45:27 完整请求
+21:45:27 请求结束
+21:45:27 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:45:27 path and query /api/weibo/update {} 
+21:45:27 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:45:27 路由到了更新微博
+21:45:27 完整请求
+21:45:27 请求结束
+21:45:27 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:45:27 path and query /api/weibo/update {} 
+21:45:27 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:45:27 路由到了更新微博
+21:48:53 完整请求
+21:48:53 请求结束
+21:48:53 请求结束
+21:48:53 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:48:53 path and query /weibo/index {} 
+21:48:53 path and query /api/weibo/update {} 
+21:48:53 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:48:53 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:48:53 路由到了更新微博
+21:48:53 响应
+ HTTP/1.1 200 OK
+Content-Type: text/html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>weibo</title>
+    <style>
+        .comment {
+            border: 1px red solid;
+        }
+        .comment-list {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input id="id-input-weibo">
+        <button id="id-button-add-weibo">发表微博</button>
+    </div>
+    <div class="weibo-list"
+         data-method="get"
+         data-path="/api/weibo/all"
+         data-template="xxtemplate"
+    >
+        <div class="comment">
+
+        </div>
+        <div class="comment-form">
+            <input type="hidden" name="weibo_id" value="">
+            <input name="content">
+            <br>
+            <button class="comment-add">添加评论</button>
+        </div>
+    </div>
+    <script src='/static?file=gua.js'></script>
+    <script src='/static?file=weibo.js'></script>
+
+
+</body>
+</html>
+21:48:53 完整请求
+21:48:53 请求结束
+21:48:53 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:48:53 path and query /api/weibo/update {} 
+21:48:53 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:48:53 路由到了更新微博
+21:48:53 完整请求
+21:48:53 请求结束
+21:48:53 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:48:53 path and query /static {'file': 'gua.js'} 
+21:48:53 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:48:53 响应
+ HTTP/1.1 200 OK
+
+var log = function() {
+    console.log.apply(console, arguments)
+}
+
+var e = function(sel) {
+    return document.querySelector(sel)
+}
+
+/*
+ ajax 函数
+*/
+var ajax = function(method, path, data, responseCallback) {
+    var r = new XMLHttpRequest()
+    // 设置请求方法和请求地址
+    r.open(method, path, true)
+    // 设置发送的数据的格式为 application/json
+    // 这个不是必须的
+    r.setRequestHeader('Content-Type', 'application/json')
+    // 注册响应函数
+    r.onreadystatechange = function() {
+        if(r.readyState === 4) {
+            // r.response 存的就是服务器发过来的放在 HTTP BODY 中的数据
+            responseCallback(r.response)
+        }
+    }
+    // 把数据转换为 json 格式字符串
+    data = JSON.stringify(data)
+    // 发送请求
+    r.send(data)
+}
+
+// TODO API
+// 获取所有 todo
+var apiTodoAll = function(callback) {
+    var path = '/api/todo/all'
+    ajax('GET', path, '', callback)
+}
+
+// 增加一个 todo
+var apiTodoAdd = function(form, callback) {
+    var path = '/api/todo/add'
+    log('form', form)
+    ajax('POST', path, form, callback)
+}
+
+// 删除一个 todo
+var apiTodoDelete = function(id, callback) {
+    var path = '/api/todo/delete?id=' + id
+    ajax('GET', path, '', callback)
+    //    get(path, callback)
+}
+
+// 更新一个 todo
+var apiTodoUpdate = function(form, callback) {
+    var path = '/api/todo/update'
+    ajax('POST', path, form, callback)
+    //    post(path, form, callback)
+}
+
+// load weibo all
+var apiWeiboAll = function(callback) {
+    var path = '/api/weibo/all'
+    ajax('GET', path, '', callback)
+}
+
+// 增加一个 weibo add
+var apiWeiboAdd = function(form, callback) {
+    var path = '/api/weibo/add'
+    log('前端发送到数据from =', form)
+    ajax('POST', path, form, callback)
+}
+
+// 删除一个 weibo
+var apiWeiboDelete = function(id, callback) {
+    var path = '/api/weibo/delete?id=' + id
+    ajax('GET', path, '', callback)
+    //    get(path, callback)
+}
+
+// 更新一个 todo
+var apiWeiboUpdate = function(form, callback) {
+    var path = '/api/weibo/update'
+    log('前端发送的数据', form)
+    ajax('POST', path, form, callback)
+    //    post(path, form, callback)
+}
+
+21:48:53 完整请求
+21:48:53 请求结束
+21:48:53 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:48:53 path and query /static {'file': 'weibo.js'} 
+21:48:53 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:48:53 响应
+ HTTP/1.1 200 OK
+
+﻿var timeString = function(timestamp) {
+    t = new Date(timestamp * 1000)
+    t = t.toLocaleTimeString()
+    return t
+}
+
+var commentsTemplate = function(comments) {
+    var html = ''
+    for(var i = 0; i < comments.length; i++) {
+        var c = comments[i]
+        var t = `
+            <div>
+                ${c.content}
+            </div>
+        `
+        html += t
+    }
+    return html
+}
+
+var delete_element = function () {
+    //传入元素的id
+    //删除元素
+
+}
+
+var WeiboTemplate = function(Weibo) {
+    var content = Weibo.content
+    var titile = Weibo.title
+    var id = Weibo.id
+    var comments = commentsTemplate(Weibo.comments)
+    // 为什么我获取不到data的值
+    var t = `
+        <div class='weibo-cell' id='weibo-${id}' data-id=${id}>
+            <div>
+                [WEIBO]: ${content}
+            </div>
+            <button class="weibo-delete">删除微博</button>
+            <button class="weibo-edit">edit</button>
+            <div class="comment-list">
+                ${comments}
+            </div>
+            <div class="comment-form">
+                <input type="hidden" name="weibo_id" value="">
+                <input name="content">
+                <br>
+                <button class="comment-add">添加评论</button>
+            </div>
+        </div>
+    `
+    return t
+    /*
+    上面的写法在 python 中是这样的
+    t = """
+    <div class="Weibo-cell">
+        <button class="Weibo-delete">删除</button>
+        <span>{}</span>
+    </div>
+    """.format(Weibo)
+    */
+}
+
+var insertWeibo = function(Weibo) {
+    var WeiboCell = WeiboTemplate(Weibo)
+    // 插入 Weibo-list
+    var WeiboList = e('.weibo-list')
+    WeiboList.insertAdjacentHTML('beforeend', WeiboCell)
+}
+
+var insertEditForm = function(cell) {
+    var form = `
+        <div class='weibo-edit-form'>
+            <input class="weibo-edit-input">
+            <button class='weibo-update'>更新</button>
+        </div>
+    `
+    cell.insertAdjacentHTML('beforeend', form)
+}
+
+var loadWeibos = function() {
+    // 调用 ajax api 来载入数据
+    apiWeiboAll(function(r) {
+        // console.log('load all', r)
+        // 解析为 数组
+        var Weibos = JSON.parse(r)
+        // 循环添加到页面中
+        for(var i = 0; i < Weibos.length; i++) {
+            var Weibo = Weibos[i]
+            insertWeibo(Weibo)
+        }
+    })
+}
+
+var bindEventWeiboAdd = function() {
+    var b = e('#id-button-add-weibo')
+    // 注意, 第二个参数可以直接给出定义函数
+    b.addEventListener('click', function(){
+        var input = e('#id-input-weibo')
+        var title = input.value
+        log('click add', title)
+        var content = input.value
+        var form = {
+            'title': title,
+            'content': content,
+        }
+        apiWeiboAdd(form, function(r) {
+            // 收到返回的数据, 插入到页面中
+            var Weibo = JSON.parse(r)
+            insertWeibo(Weibo)
+        })
+    })
+}
+
+var bindEventWeiboDelete = function() {
+    var WeiboList = e('.weibo-list')
+    // 注意, 第二个参数可以直接给出定义函数
+    WeiboList.addEventListener('click', function(event){
+        var self = event.target
+        log('点击了delete', self, self.parentElement)
+        if(self.classList.contains('weibo-delete')){
+            // 删除这个 Weibo
+            var WeiboCell = self.parentElement
+            log('删除的dataset id=', self.parentElement, '删除自己', self)
+            var Weibo_id = WeiboCell.dataset.id
+            apiWeiboDelete(Weibo_id, function(r){
+                log('删除成功', Weibo_id)
+                WeiboCell.remove()
+            })
+        }
+    })
+}
+
+var bindEventWeiboEdit = function() {
+    var WeiboList = e('.weibo-list')
+    // 注意, 第二个参数可以直接给出定义函数
+    WeiboList.addEventListener('click', function(event){
+        var self = event.target
+        log('点击了deit')
+        if(self.classList.contains('weibo-edit')){
+            // 删除这个 Weibo
+            var WeiboCell = self.parentElement
+            insertEditForm(WeiboCell)
+        }
+    })
+}
+
+
+var bindEventWeiboUpdate = function() {
+    var WeiboList = e('.weibo-list')
+    // 注意, 第二个参数可以直接给出定义函数
+    WeiboList.addEventListener('click', function(event){
+        var self = event.target
+        if(self.classList.contains('weibo-update')){
+            //
+            var editForm = self.parentElement
+            // querySelector 是 DOM 元素的方法
+            // document.querySelector 中的 document 是所有元素的祖先元素
+            var input = editForm.querySelector('.weibo-edit-input')
+            log('点击了 update ', input)
+            var title = input.value
+            // 用 closest 方法可以找到最近的直系父节点
+            var WeiboCell = self.closest('.weibo-cell')
+            var Weibo_id = WeiboCell.dataset.id
+            var form = {
+                'id': Weibo_id,
+                'title': title,
+            }
+            apiWeiboUpdate(form, function(r){
+                log('更新成功', Weibo_id)
+                var Weibo = JSON.parse(r)
+                var selector = '#weibo-' + Weibo.id
+                var WeiboCell = e(selector)
+                var titleSpan = WeiboCell.querySelector('.weibo-title')
+                titleSpan.innerHTML = Weibo.title
+//                WeiboCell.remove()
+            })
+        }
+    })
+}
+
+var bindEvents = function() {
+    bindEventWeiboAdd()
+    bindEventWeiboDelete()
+    bindEventWeiboEdit()
+    bindEventWeiboUpdate()
+}
+
+var __main = function() {
+    bindEvents()
+    loadWeibos()
+}
+
+__main()
+
+21:48:54 完整请求
+21:48:54 请求结束
+21:48:54 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:48:54 path and query /api/weibo/all {} 
+21:48:54 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:48:54 debug weibo init form = ({}) content =() 
+21:48:54 debug weibo init form = ({}) content =() 
+21:48:54 debug weibo init form = ({}) content =() 
+21:48:54 kwargs,  {'weibo_id': 3} <class 'dict'>
+21:48:54 kwargs,  {'weibo_id': 8} <class 'dict'>
+21:48:54 kwargs,  {'weibo_id': 9} <class 'dict'>
+21:48:54 后端返回的数据(HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+  {
+    "id": 3,
+    "title": "",
+    "content": "hahaha",
+    "user_id": 1,
+    "comments": [
+      {
+        "id": 6,
+        "content": "123",
+        "weibo_id": 3,
+        "user_id": 1
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "我就是 爱音乐",
+    "content": "我就是 爱音乐",
+    "comments": []
+  },
+  {
+    "id": 9,
+    "title": "没有什么废话啊",
+    "content": "没有什么废话啊",
+    "comments": []
+  }
+])
+21:48:54 响应
+ HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+  {
+    "id": 3,
+    "title": "",
+    "content": "hahaha",
+    "user_id": 1,
+    "comments": [
+      {
+        "id": 6,
+        "content": "123",
+        "weibo_id": 3,
+        "user_id": 1
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "我就是 爱音乐",
+    "content": "我就是 爱音乐",
+    "comments": []
+  },
+  {
+    "id": 9,
+    "title": "没有什么废话啊",
+    "content": "没有什么废话啊",
+    "comments": []
+  }
+]
+21:48:58 完整请求
+21:48:58 请求结束
+21:48:58 cookie ['Pycharm-df2c00ac=2c9c504c-98e7-4d59-94a6-d21c0eb4da36', 'user=9sdw9ag8lrked9k8', 'username-localhost-8889="2|1:0|10:1532351487|23:username-localhost-8889|44:OGY4N2QyMTVhMzM3NGQwYWIxMzVjNDBmZDI1MjgxNDk=|7bd82ad0e8820ec18d3bb088326c13bd90f42fb9a0e96089d0dff57f3a391b55"', 'username-localhost-8888="2|1:0|10:1532351957|23:username-localhost-8888|44:ZmMzOGJjYzRiYjM1NDU3ZWExYmI3YWEzMDk4MDY5ZmY=|5d94647c90c53f2919d6b1ad0b60fae7b9d38485b4492dc997ad3220e99d9601"']
+21:48:58 path and query /api/weibo/update {} 
+21:48:58 deug response***({'/static': <function route_static at 0x03CF6978>, '/api/todo/all': <function all at 0x03CF6ED0>, '/api/todo/add': <function add at 0x03CF6F60>, '/api/todo/delete': <function delete at 0x03CFE0C0>, '/api/todo/update': <function update at 0x03CFE108>, '/api/weibo/all': <function all_weibo at 0x03CFE2B8>, '/api/weibo/add': <function add_weibo at 0x03CFE270>, '/api/weibo/delete': <function delete_weibo at 0x03CFE228>, '/api/weibo/update': <function update_weibo at 0x03CFE1E0>, '/login': <function route_login at 0x03CF6B28>, '/register': <function route_register at 0x03CF6B70>, '/': <function main_index at 0x03CF6CD8>, '/todo/index': <function index at 0x03CF6E88>, '/weibo/index': <function index at 0x03CF6C48>})
+21:48:58 路由到了更新微博
