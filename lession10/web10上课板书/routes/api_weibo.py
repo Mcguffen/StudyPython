@@ -50,7 +50,7 @@ def update_weibo(request):
     log('路由到了更新微博')
     form = request.json()
     weibo_id = int(form.get('id'))
-    log('debug 更新*****({})'.format(id))
+    log('debug 更新*****({} form({}))'.format(weibo_id, form))
     t = Weibo.update(weibo_id, form)
     log('更新微博({})'.format(t))
     return json_response(t.json())

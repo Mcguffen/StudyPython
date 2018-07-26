@@ -30,11 +30,10 @@ var WeiboTemplate = function(Weibo) {
     var id = Weibo.id
     var comments = commentsTemplate(Weibo.comments)
     // 为什么我获取不到data的值
+    // <span class='weibo-content'>[WEIBO]${content}</span>
     var t = `
         <div class='weibo-cell' id='weibo-${id}' data-id=${id}>
-            <div>
-                [WEIBO]: ${content}
-            </div>
+                <span class='weibo-title'>[title]${titile}</span>
             <button class="weibo-delete">删除微博</button>
             <button class="weibo-edit">edit</button>
             <div class="comment-list">
@@ -144,6 +143,9 @@ var bindEventWeiboEdit = function() {
     })
 }
 
+var updateInnerHtml = function(){
+    //更新微博
+}
 
 var bindEventWeiboUpdate = function() {
     var WeiboList = e('.weibo-list')
@@ -170,8 +172,9 @@ var bindEventWeiboUpdate = function() {
                 var Weibo = JSON.parse(r)
                 var selector = '#weibo-' + Weibo.id
                 var WeiboCell = e(selector)
+                log('WeiboCell=', WeiboCell)
                 var titleSpan = WeiboCell.querySelector('.weibo-title')
-                titleSpan.innerHTML = Weibo.title
+                titleSpan.innerHTML = '[WEIBO]'  + Weibo.title
 //                WeiboCell.remove()
             })
         }

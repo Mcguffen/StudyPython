@@ -1,3 +1,4 @@
+import time
 from models import Model
 from models.user import User
 from models import log
@@ -25,8 +26,9 @@ class Weibo(Model):
         t = cls.find(id)
         valid_names = [
             'title',
-            'content'
+            'content',
         ]
+        log("weibo update ***** id({}) form({}) t ({})".format(id, form, t))
         for key in form:
             # 这里只应该更新我们想要更新的东西
             if key in valid_names:
