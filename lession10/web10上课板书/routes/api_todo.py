@@ -49,6 +49,7 @@ def delete(request):
 
 def update(request):
     form = request.json()
+    log("debuf update form({})".format(form))
     todo_id = int(form.get('id'))
     t = Todo.update(todo_id, form)
     return json_response(t.json())

@@ -8,6 +8,7 @@ from utils import (
 )
 from models.todo import Todo
 from models.weibo import Weibo
+from models.weibo import Comment
 
 
 def all_weibo(request):
@@ -56,10 +57,29 @@ def update_weibo(request):
     return json_response(t.json())
 
 
+def add_comment(request):
+    # 添加评论
+    """
+    接受浏览器发过来的添加 comment 请求
+    添加数据并返回给浏览器
+    """
+    log('路由到了添加评论({})'.format(request))
+    form = request.json()
+    log('接收到的前端的数据', form)
+    # 创建一个 model
+    m = Comment.new(form)
+    log('创建的评论对象', m)
+    # 把创建好的 model 返回给浏览器
+    return json_response(m.json())
+    pass
+
+
 route_dict = {
     # weibo api
     '/api/weibo/all': all_weibo,
     '/api/weibo/add': add_weibo,
     '/api/weibo/delete': delete_weibo,
     '/api/weibo/update': update_weibo,
+    # comment api
+    '/api/comment/add': add_comment,
 }

@@ -16,9 +16,11 @@ class Weibo(Model):
         d = self.__dict__.copy()
         comments = [c.json() for c in self.comments()]
         d['comments'] = comments
+        log('debug weibo json({})comments({}) type=({}) '.format(d, comments, type(comments)))
         return d
 
     def comments(self):
+        log('debug Weibo comment({})'.format(Comment.find_all(weibo_id=self.id)))
         return Comment.find_all(weibo_id=self.id)
 
 

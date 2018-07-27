@@ -58,6 +58,13 @@ var apiTodoUpdate = function(form, callback) {
     //    post(path, form, callback)
 }
 
+// 增加一个 comment
+var apiCommentAdd = function(form, callback) {
+    var path = '/api/comment/add'
+    log('comment 前端发送到数据from =', form)
+    ajax('POST', path, form, callback)
+}
+
 // load weibo all
 var apiWeiboAll = function(callback) {
     var path = '/api/weibo/all'
@@ -78,7 +85,7 @@ var apiWeiboDelete = function(id, callback) {
     //    get(path, callback)
 }
 
-// 更新一个 todo
+// 更新一个 weibo
 var apiWeiboUpdate = function(form, callback) {
     var path = '/api/weibo/update'
     log('前端发送的数据', form)

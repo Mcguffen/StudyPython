@@ -137,6 +137,7 @@ var bindEventTodoUpdate = function() {
             apiTodoUpdate(form, function(r){
                 log('更新成功', todo_id)
                 var todo = JSON.parse(r)
+                // 获取后端返回的数据
                 var selector = '#todo-' + todo.id
                 var todoCell = e(selector)
                 var titleSpan = todoCell.querySelector('.todo-title')
