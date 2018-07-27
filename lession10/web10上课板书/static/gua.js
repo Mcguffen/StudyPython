@@ -65,6 +65,14 @@ var apiCommentAdd = function(form, callback) {
     ajax('POST', path, form, callback)
 }
 
+// 删除一个 comment
+var apiCommentDelete = function(id, callback) {
+    var path = '/api/comment/delete?id=' + id
+    log('comment id', id)
+    ajax('GET', path, '', callback)
+    //    get(path, callback)
+}
+
 // load weibo all
 var apiWeiboAll = function(callback) {
     var path = '/api/weibo/all'

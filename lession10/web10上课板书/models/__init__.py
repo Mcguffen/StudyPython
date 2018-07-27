@@ -141,6 +141,7 @@ class Model(object):
             pass
         else:
             obj = models.pop(index)
+            # ong = models.pop(index)
             l = [m.__dict__ for m in models]
             path = cls.db_path()
             save(l, path)

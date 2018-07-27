@@ -15,7 +15,7 @@ var commentsTemplate = function(comments) {
         var weibo_id = c.weibo_id
         var t = `
             <div class="comment-cell" id='comment-${id}' data-comid=${id}>
-                ${content}
+                <span class='comment-content'>${content}</span>
                 <button class='comment-delete'>删除</button>
             </div>
         `
@@ -269,13 +269,14 @@ var bindEventCommentDelete = function() {
         var self = event.target
         // log('点击了delete', self, self.parentElement)
         if(self.classList.contains('comment-delete')){
-            // 删除这个 Weibo
-            var WeiboCell = self.parentElement
-            log('删除的dataset id=', self.parentElement, '删除自己', self)
-            // var Weibo_id = WeiboCell.dataset.id
-            // apiWeiboDelete(Weibo_id, function(r){
-            //     log('删除成功', Weibo_id)
-            //     WeiboCell.remove()
+            // 删除这个 comment
+            var CommentCell = self.parentElement
+            // log('bindEventCommentDelete 删除的dataset id=', self.parentElement, '\n删除自己', self)
+            var comment_id = CommentCell.dataset.comid
+            log('id=', comment_id)
+            apiCommentDelete(comment_id,function (r) {
+                    log('删除成功', comment_id, r)
+                    CommentCell.remove()
             })
         }
     })

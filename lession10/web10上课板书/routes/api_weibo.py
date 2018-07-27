@@ -74,6 +74,18 @@ def add_comment(request):
     pass
 
 
+def delete_comment(request):
+    """
+    通过下面这样的链接来删除一个 comment
+    先不考虑权限认证的问题
+    /delete?id=1
+    """
+    comment_id = int(request.query.get('id'))
+    t = Comment.delete(comment_id)
+    return json_response(t.json())
+    pass
+
+
 route_dict = {
     # weibo api
     '/api/weibo/all': all_weibo,
@@ -82,4 +94,5 @@ route_dict = {
     '/api/weibo/update': update_weibo,
     # comment api
     '/api/comment/add': add_comment,
+    '/api/comment/delete': delete_comment,
 }

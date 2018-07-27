@@ -68,11 +68,6 @@
     "weibo_id": 3
   },
   {
-    "id": 13,
-    "content": "红褐色",
-    "weibo_id": 8
-  },
-  {
     "id": 14,
     "content": "睡大觉卡三等奖卡数据库",
     "weibo_id": 3
@@ -128,54 +123,9 @@
     "weibo_id": 9
   },
   {
-    "id": 25,
-    "content": "按时发货后健身房",
-    "weibo_id": 8
-  },
-  {
-    "id": 26,
-    "content": "山东黄金卡视角卡迪夫",
-    "weibo_id": 8
-  },
-  {
-    "id": 27,
-    "content": "爱喝酒撒多喝水复健科",
-    "weibo_id": 8
-  },
-  {
-    "id": 28,
-    "content": "四大复活节",
-    "weibo_id": 8
-  },
-  {
-    "id": 29,
-    "content": "阿达的痕迹",
-    "weibo_id": 8
-  },
-  {
     "id": 30,
     "content": "阿萨德",
     "weibo_id": 9
-  },
-  {
-    "id": 31,
-    "content": "大厦数据库",
-    "weibo_id": 8
-  },
-  {
-    "id": 32,
-    "content": "水电费和进口量",
-    "weibo_id": 8
-  },
-  {
-    "id": 33,
-    "content": "安抚",
-    "weibo_id": 8
-  },
-  {
-    "id": 34,
-    "content": "涉及到付款",
-    "weibo_id": 8
   },
   {
     "id": 35,
