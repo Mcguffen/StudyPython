@@ -14,8 +14,7 @@
 下周一(3月13日的课程因故顺延至周三(3月15日))
 12 课(周三(3月15日))开始, 我们要在 Linux 服务器上部署代码
 需要准备的东西有(一台服务器, 一个域名), 本节课会讲如何购买
-其他的知识比如 Linux 使用, 上课会教
-
+ 
 
 
 
@@ -48,9 +47,10 @@ CSS 的使用
 
 
 
+visibity:hidden(隐身 占用的个子还在)
 
 display 属性
-    none
+    none (相当于消失)
     block
     inline
     inline-block
@@ -62,7 +62,7 @@ block 占一行
 默认 block 的标签有
 div p ul ol li h1 h2 h3 h4 h5 h6
 
-inline 只占 content 的尺寸
+inline 只占 content(内容大小) 的尺寸
 
 inline-block 是 inline 布局 block 模式
 inline-block 对外表现为 inline，所以可以和别的 inline 放在一行
@@ -71,6 +71,10 @@ inline-block 对外表现为 inline，所以可以和别的 inline 放在一行
 
 
 盒模型
+# 内容(content)
+# 内边距(padding)
+# 边框(border)
+# 外边距(margin)
     内容
     padding
     border
@@ -150,7 +154,7 @@ padding
 
 三种缩写, 分别对应有 4 2 3 个值的时候的解释
     padding 同理
-margin: top  right  bottom  left
+margin: top  right  bottom  left (上 右 下 左)
 margin: (top/bottom)  (right/left)
 margin: top  (right/left)  bottom
 

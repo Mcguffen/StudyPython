@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>课 10 布局练习</title>
+    <!-- 这是基础的 css 不要改动 -->
+    <style>
+        .gua-header {
+            height: 50px;
+            background: lightsteelblue;
+        }
+        .gua-content {
+            height: 80px;
+            background: lightcoral;
+        }
+        .gua-index {
+            height: 50px;
+            background: lightblue;
+        }
+        .gua-detail {
+            height: 30px;
+            background: lightyellow;
+        }
+        .gua-footer {
+            height: 50px;
+            background: lightseagreen;
+        }
+    </style>
+    <!-- 你的 css 写在这个 style 标签里 -->
+    <style>
+    .gua-container {
+        /*!important;*/
+        /*height: 80px;
+        width: 50%;
+        background: lightcoral;*/
+        width: 80%;
+        /*position: relative;;*/
+        margin: 0 auto;
+    }
+    .gua-content {
+        !important;
+        height: 80px;
+        width: 50%;
+        background: lightcoral;
+        /*position: relative;;*/
+        margin: 0 auto;
+    }
+    .gua-index {
+        !important;
+        height: 50px;
+        background: lightblue;
+        width: 25%;
+        float:left;
+    }
+    .gua-detail {
+        !important;
+        height: 30px;
+        background: lightyellow;
+        width: 25%;
+        float: right;
+        position: relative;
+        /*top: -10px*/
+
+    }
+    .clearfix::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .gua-header:hover{
+        color: #ab2222;
+        /*background: lightsteelblue;*/
+        background: #698ebf;
+    }
+    </style>
+</head>
+<body>
+    <div class="gua-page">
+        <div class="gua-header">
+            header
+        </div>
+
+        <div class="gua-container clearfix">
+            <div class="gua-index">
+                index
+            </div>
+            <div class="gua-content">
+                content
+            </div>
+            <div class="gua-detail">
+                detail
+            </div>
+        </div>
+
+        <div class="gua-footer">
+            footer
+        </div>
+    </div>
+</body>
+</html>
