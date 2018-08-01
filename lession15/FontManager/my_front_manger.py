@@ -81,7 +81,7 @@ def my_all_fronts(f='front'):
     # log('now_dir  = ({})'.format(now_dir))
     f_dir = now_dir + '/' + front_dir
 
-    frons = find_files_with_suf(f_dir, )
+    # frons = find_files_with_suf(f_dir, )
     # 字体格式后缀为'.ttf', '.TTF'
     suf = ('.ttf', '.TTF')
     rs = []
@@ -94,6 +94,7 @@ def my_all_fronts(f='front'):
     fs = [i for item in fronts for i in item]
     # log('fs = ({})'.format(fs))
 
+    log('rs**** ({})'.format(fs))
     return fs
 
 
@@ -102,6 +103,7 @@ def show_all_front():
     print('**********当前字体*********')
     for i in range(len(fronts)):
         f = fronts[i]
+        f = f.replace('\\','/')
         print('字体', i, f)
 
 
@@ -117,9 +119,11 @@ def chose_my_front():
     else:
         print('out range')
     print('已选择({})字体'.format(f), c)
-    font =  fronts[c]
+    font = fronts[c]
+    font = font.replace('\\', '/')
     myfont = matplotlib.font_manager.FontProperties(fname=font)
 
+    log('end chose front({})'.format(font))
     return myfont
 
 #
@@ -149,6 +153,7 @@ def craw_sin_cos(f):
     myfont = chose_my_front()
     log('myfont', myfont)
     plt.figure(figsize=(8, 4))
+    log('craw_sin_cos end chose front')
     plt.plot(x, y, label="$sin(x)$", color="red", linewidth=2)
     plt.plot(x, z, 'b--', label="$cos(x^2)$")
     plt.xlabel("Time(s)")
