@@ -14,6 +14,10 @@ import matplotlib.font_manager  # matplotlib 选择系统中文字体， 不然�
 #
 # myfont = matplotlib.font_manager.FontProperties(fname=f)
 
+import matplotlib as mpl
+
+mpl.rcParams['font.sans-serif']=['SimHei'] #用来正常显示中文标签
+
 
 def log(*args, **kwargs):
     # 自己写的调试的工具函数
@@ -117,7 +121,7 @@ def craw_sin_cos(f):
     plt.plot(x, z, 'b--', label="$cos(x^2)$")
     plt.xlabel("Time(s)")
     plt.ylabel("Voltage(V)")
-    plt.title("正弦函数", fontproperties=myfont)
+    plt.title("正弦函数")
     plt.legend()
 
     plt.show()

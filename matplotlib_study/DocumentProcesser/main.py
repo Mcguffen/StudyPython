@@ -2,7 +2,12 @@ import json
 import openpyxl
 import time
 from models.td import Td
+import matplotlib.pyplot as plt  # 导入绘图包
+import matplotlib as mpl
 import numpy as np
+
+mpl.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+mpl.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 '''
 需要使用 openpyxl 处理 excel 文件
 注意，只支持 xlsx 格式，不支持 xls 格式
@@ -122,6 +127,46 @@ def write_one_td(wb, titl, rd=[], td=[], col=1):
     return sheet
 
 
+def load_one_line():
+
+    pass
+
+
+def load_all_lines():
+    # 读取txt
+    # 返回所有曲线的数据
+    # 数据类型为np.array类型
+
+    all_tds = Td.all()
+    lines = []
+    for i in range(len(all_tds)):
+        line = []
+        arr_rd = []
+        arr_td = []
+        td = all_tds[i]
+        td = td.json()
+
+        title = td.get('td', '')
+        list_rD = td.get('list_rD', '')
+        list_TD = td.get('list_TD', '')
+
+        arr_rd = str_to_float_arr(list_rD)
+        arr_td = str_to_float_arr(list_TD)
+        # return arr_rd, arr_td
+
+        # 将曲线数据转化为np.array类型
+        arr_rd = np.array(arr_rd)
+        arr_td = np.array(arr_td)
+
+        # 将曲线 td list_rD list_TD 数据放到line中
+        line.append(title)
+        line.append(arr_rd)
+        line.append(arr_td)
+        lines.append(line)
+
+    return lines
+
+
 def write_xlsx():
 
     # 1. 加载json文件
@@ -159,7 +204,7 @@ def write_xlsx():
         # 将数据写入sheet
         write_one_td(wb=sheet, rd=arr_rd, td=arr_td, col=j+1, titl=title)
         j += 2
-        log('arr_rd({}) arr_td({})'.format(arr_rd, arr_td), i)
+        # log('arr_rd({}) arr_td({})'.format(arr_rd, arr_td), i)
 
     # 保存到 .xlsx 文件中
     workbook.save('({})条曲线数据 .xlsx'.format(len(all_tds)))
@@ -191,7 +236,7 @@ def load_xlsx():
     filename = '三条tD曲线数据.xlsx'
     workbook = openpyxl.load_workbook(filename)
     # 所有的工作表单名字
-    log(workbook.sheetnames)
+    # log(workbook.sheetnames)
 
     # 拿到某个 工作表 内容的标准做法，我们这个 excel 文件只有一个三条曲线数据工作表
     sheet = workbook['三条曲线数据']
@@ -214,6 +259,7 @@ def load_xlsx():
     # log('start time')
 
     le = len(sheet['A'])
+    log("debug le ({})".format(le, sheet['A']))
     i = 0
     td_cell = []
     for a in sheet['A']:
@@ -222,7 +268,7 @@ def load_xlsx():
         td_cell.append(v)
         i = i + 1
         # log('a', a.value, 'i', i)
-
+    # td_cell保存了xlsx文件所有信息
     # log('end time cell ({})'.format(td_cell))
     # 每隔六行 新建一个 td类
     dis = 6
@@ -236,7 +282,7 @@ def load_xlsx():
         dic['list_TD'] = td_cell[i + 4]
         # log('dic', dic, i)
         t = Td.new(dic)
-        log('dic', dic, i, t)
+        # log('dic', dic, i, t)
 
 
 '''
@@ -264,6 +310,8 @@ def test_delete_all():
 
 def test():
     # test_read()
+    # lines = load_all_lines()
+    # log('lines = ({})'.format(lines))
     # test_write()
     # test_delete_all()
     pass
