@@ -149,8 +149,8 @@ def craw_sin_cos(f):
     # f为指定的字体
     x, y, z = load_data()
     # myf = f
-    # myfont = matplotlib.font_manager.FontProperties(fname=f)
-    myfont = chose_my_front()
+    myfont = matplotlib.font_manager.FontProperties(fname=f)
+    # myfont = chose_my_front()
     log('myfont', myfont)
     plt.figure(figsize=(8, 4))
     log('craw_sin_cos end chose front')

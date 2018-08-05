@@ -28,7 +28,7 @@ def csv_to_xlsx():
 
 
 def csv_to_excel():
-
+    # 获取当前目录下所有的.csv文件
     for csvfile in glob.glob(os.path.join('.', '*.csv')):
         workbook = Workbook(csvfile[:-4] + '.xlsx')
         worksheet = workbook.add_worksheet()

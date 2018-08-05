@@ -1,0 +1,31 @@
+14:51:02 kwargs,  {'id': -1} <class 'dict'>
+14:51:11 args ImmutableMultiDict([])
+14:51:18 debug 2
+14:51:19 args ImmutableMultiDict([])
+14:54:21 args ImmutableMultiDict([])
+14:57:39 kwargs,  {'id': -1} <class 'dict'>
+14:57:42 kwargs,  {'id': -1} <class 'dict'>
+14:57:43 kwargs,  {'id': -1} <class 'dict'>
+14:57:44 kwargs,  {'id': -1} <class 'dict'>
+14:57:44 kwargs,  {'id': -1} <class 'dict'>
+14:57:45 kwargs,  {'id': -1} <class 'dict'>
+14:57:45 kwargs,  {'id': -1} <class 'dict'>
+14:57:46 kwargs,  {'id': -1} <class 'dict'>
+14:57:58 kwargs,  {'username': 'xiaobai'} <class 'dict'>
+14:57:58 debug 1
+14:57:58 kwargs,  {'id': -1} <class 'dict'>
+14:58:00 kwargs,  {'id': -1} <class 'dict'>
+14:58:01 kwargs,  {'id': -1} <class 'dict'>
+14:58:02 kwargs,  {'username': ''} <class 'dict'>
+14:58:02 kwargs,  {'id': -1} <class 'dict'>
+14:58:12 kwargs,  {'username': 'xiaobai'} <class 'dict'>
+14:58:12 kwargs,  {'id': 2} <class 'dict'>
+14:59:24 kwargs,  {'id': 2} <class 'dict'>
+14:59:28 kwargs,  {'id': 2} <class 'dict'>
+15:02:52 debug 13
+15:03:03 debug 14
+21:22:37 inner blog********
+21:24:00 kwargs,  {'blog_id': 1} <class 'dict'>
+21:24:00 kwargs,  {'id': 1} <class 'dict'>
+21:24:16 kwargs,  {'blog_id': 1} <class 'dict'>
+21:24:16 kwargs,  {'id': 1} <class 'dict'>

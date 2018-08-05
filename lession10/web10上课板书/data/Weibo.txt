@@ -6,12 +6,6 @@
     "user_id": 1
   },
   {
-    "id": 2,
-    "title": "",
-    "content": "你好",
-    "user_id": 1
-  },
-  {
     "id": 8,
     "title": "我就是 爱音乐",
     "content": "我就是 爱音乐"

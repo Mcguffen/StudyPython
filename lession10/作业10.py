@@ -20,6 +20,8 @@
 # 作业4
 # 添加 comment
 # 绑定 comment-add 的事件，点击之后发送请求
+# 1 获取输入框的值
+# 2 获取weibo_id 与 comment_id
 # 添加 add_comment 路由，并且参照 todo 实现增加的功能，这里需要注意 comment 是通过 weibo_id 与 weibo 关联在一起的
 #
 # 作业5

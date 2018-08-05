@@ -139,6 +139,9 @@ var bindEventTodoUpdate = function() {
                 var todo = JSON.parse(r)
                 // 获取后端返回的数据
                 var selector = '#todo-' + todo.id
+                // 获取要修改的todo的id
+                // 根据id找到todocell
+                // 找到原始的内容, 并修改
                 var todoCell = e(selector)
                 var titleSpan = todoCell.querySelector('.todo-title')
                 titleSpan.innerHTML = todo.title
