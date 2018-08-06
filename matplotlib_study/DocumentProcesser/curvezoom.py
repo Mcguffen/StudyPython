@@ -81,12 +81,18 @@ def onpress(event):
     # 当鼠标点击 src图时 zoom图 显示 放大过的src图 曲线
     axzoom = plt.subplot(122)  # 第二行的图
 
-    axsrc  = plt.subplot(121)
+    axsrc = plt.subplot(121)
 
     axsrc.axes.get_xbound()
     axsrc.axes.get_ybound()
+    xlim= axsrc.axes.get_xbound()
+
+    xlim = np.array(xlim) / 10
+
+
     log('第一张子图的x', axsrc.axes.get_xlim())
     log('第一张子图的y', axsrc.axes.get_ybound())
+    log('第一张子图的xlim', xlim)
 
     if event.button != 1:
         return
