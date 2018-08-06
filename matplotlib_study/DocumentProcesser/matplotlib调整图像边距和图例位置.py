@@ -70,6 +70,39 @@ def draw_raw_sin_cos():
     plt.show()
 
 
+def find_three_extra():
+    # 寻找三角函数
+    # 极大值极小值
+    import pylab as pl
+    import scipy.signal as signal
+
+    # 加载数据
+    X, C, S = load_date()
+
+    # 创建一个8 * 6点(point)的图，并设置分辨率为80
+    plt.figure(figsize=(8, 6), dpi=80)
+
+    # 创建一个新的 1 * 1的子图，接下来的图样绘制在其中的第 1 块（也是唯一的一块）
+    plt.subplot(1, 1, 1)
+
+    # 绘制余弦曲线，使用蓝色的、连续的、宽度为 1 （像素）的线条
+    plt.plot(X, C, color="blue", linewidth=1.0, linestyle="-")
+    # 绘制正弦曲线，使用绿色的、连续的、宽度为 1 （像素）的线条
+    # plt.plot(X, S, color="green", linewidth=1.0, linestyle="-")
+    xext = [signal.argrelextrema(X, np.greater)]
+    cext = [signal.argrelextrema(C, np.greater)]
+
+    log("x =", C)
+    # print([signal.argrelextrema(X, np.greater)])
+    print([signal.argrelextrema(C, np.greater)])
+
+    # plt.plot(xext, x[signal.argrelextrema(x, np.greater)], 'o')
+    # plt.plot(xext, cext, 'o')
+
+    plt.show()
+    pass
+
+
 def draw_after_revise(ratio=(0.1, 0.1), legend_position=(0.8, 0.9)):
     # 修正过的 正弦余弦图
     # ratio 是x轴 y轴偏移系数
@@ -170,9 +203,10 @@ def test_load_date():
 def test():
     # draw_raw_sin_cos()
     # draw_after_revise()
-    test_draw_after_revise()
+    # test_draw_after_revise()
     # draw_pic()
     # test_load_date()
+    find_three_extra()
     pass
 
 

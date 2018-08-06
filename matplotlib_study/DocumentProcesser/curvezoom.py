@@ -1,5 +1,5 @@
 from main import load_all_lines
-from utils import log
+from utils import log_by_time as log
 import json
 import openpyxl
 import time
@@ -8,6 +8,7 @@ import matplotlib as mpl
 import numpy as np
 import pylab as pl
 import scipy.signal as signal
+from scipy.signal import argrelextrema
 
 mpl.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
 mpl.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
@@ -78,31 +79,180 @@ def chose_color(number=0):
 def onpress(event):
     # 事件处理函数
     # 当鼠标点击 src图时 zoom图 显示 放大过的src图 曲线
-    axzoom = plt.subplot(212)  # 第二行的图
+    axzoom = plt.subplot(122)  # 第二行的图
+
+    axsrc  = plt.subplot(121)
+
+    axsrc.axes.get_xbound()
+    axsrc.axes.get_ybound()
+    log('第一张子图的x', axsrc.axes.get_xlim())
+    log('第一张子图的y', axsrc.axes.get_ybound())
 
     if event.button != 1:
         return
     x, y = event.xdata, event.ydata
-    axzoom.set_xlim(x - 0.1, x + 0.1)
-    axzoom.set_ylim(y - 0.1, y + 0.1)
+    axzoom.set_xlim(x - 0.1, x + 0.6)
+    axzoom.set_ylim(y - 0.01, y + 0.01)
 
     event.canvas.draw()
     return
 
 
+def get_limets_with_all_lines():
+    pass
+
+
+def find_inflection_point(larr):
+    # 传入曲线数组
+    # 返回曲线拐点位置
+    lines = load_all_lines()
+
+    title, x, y = lines[0]
+
+    # arr = y
+    arr = larr
+    ypow = 4
+    y_disdance = 0.1**ypow
+    # c = np.power(10, 9)
+
+    # 0 -- len(arr-1) 的数据
+    carr = arr[:-1]
+    # 1 -- 98
+    cparr = arr[1:]
+
+    # 所有数据之间的距离
+    distance = abs(carr - cparr)
+    # cparr = arr[1:]
+    # 寻找拐点 第一个点之间距离小于 0.1的 ypow(ypow=10)的点就是拐点
+    #
+    for i in range(len(distance)):
+        dis = distance[i]
+        if dis < y_disdance:
+            log("i = ", i)
+            return i
+        pass
+    log('lencparr', y_disdance)
+
+
+
+    pass
+
+
+def get_zoomed_xy_axes_limts():
+    # 接收所有曲线的信息
+    # 返回合适的x, y轴的上下限
+    # 曲线的x y的
+    lines = load_all_lines()
+
+    # 极值点所有x y数据
+    ext_xzbs = []
+    ext_yzbs = []
+
+    # 曲线所有的x y数据
+    xarrs = []
+    yarrs = []
+
+    # yarr[0]所对应的 y值是y的最小值
+
+    #  所有曲线第一个值 都是最大值
+    #  多根曲线将取最小的y作为缩放图的y上限
+    first = []
+
+    # 找出曲线范围的最大最小值
+    for line in lines:
+        title, td, rd = line
+        xarr = td
+        yarr = rd
+        # log('rd = {}'.format(rd))
+
+        f = yarr[0]
+        first.append(f)
+
+        xarrs.append(xarr)
+        yarrs.append(yarr)
+
+        # 获取当前yarr拐点
+        t = find_inflection_point(yarr)
+        # log('y的极值({})'.format(t))
+
+        # 搜索y 点 左右某个 值小于某个数
+        # yar =
+
+        # 将该极值点在曲线上画出来
+        # 极值点的y坐标决定 y轴上限
+        # 极值点的x坐标决定 x轴上限
+        xzb = xarr[t]
+        yzb = yarr[t]
+        ext_xzbs.append(xzb)
+        ext_yzbs.append(yzb)
+
+    # log('')
+    np.array([])
+
+    # 极值点所有x y数据
+    ext_xzbs = np.array(ext_xzbs)
+    ext_yzbs = np.array(ext_yzbs)
+
+    # 曲线所有的x y数据
+    xarrs = np.array(xarrs)
+    yarrs = np.array(yarrs)
+
+    first = np.array(first)
+
+    y_max = first.min()
+    # 获取当前所有曲线的xarr, yarr最大最小值
+    xarr_max, xarr_min = xarrs.max(), xarrs.min()
+    yarr_max, yarr_min = yarrs.max(), yarrs.min()
+
+    ext_x_min, ext_x_max = ext_xzbs.min(), ext_xzbs.max()
+    ext_y_min, ext_y_max = ext_yzbs.min(), ext_yzbs.max()
+
+    xlim_min = xarr_min - 0.1 * xarr_min
+    xlim_max = ext_x_max
+
+    y_multiples = 100
+    ylim_min = yarr_min - abs(yarr_min * 20)
+    # ylim_max = ext_y_min * y_multiples
+    ylim_max = yarr_min
+
+    return xlim_min, xlim_max, ylim_min, y_max
+
+        # 和本地的最大最小做比较
+        #
+
+        # 缩放函数
+        # 1.寻找极值点
+        #       寻找极值点的位置
+        # 2.获取极值点附近的点数据
+        #       将极值点设置为图像中心点
+        #       极值点左右分别取n(n=10)个点的数据
+        #       获得点x, y的均值
+        #       根据均值设置图像的x轴 y轴 的上下限
+
+
+        # src.plot(xzb, yzb, 'o')
+
+    pass
+
+
 def zoom_pic():
+
+    log("start zoom")
     # 绘制散点图
     # 缩放图像
     # figure = plt.figure()
 
     # 创建主图层
     figure = plt.figure(figsize=(9, 6), dpi=100)
+    figure.suptitle('点击左子图 右边显示缩放', fontsize=14, fontweight='bold')
     # 加载曲线数据
     # x, c, s = load_date()
 
     # 创建两个子图
-    src = plt.subplot(211)  # 第一行的图 211 --> 类似(n,m,o) (n) 代表 主图分n两行 每行分成m列代表每行分成
-    zoom = plt.subplot(212)  # 第二行的图
+    # 左子图
+    src = plt.subplot(121)  # 第一行的图 211 --> 类似(n,m,o) (n) 代表 主图分n两行 每行分成m列代表每行分成
+    # 右子图
+    zoom = plt.subplot(122)  # 第二行的图
 
     # 设置横轴的上下限
     # src.axes.set_xlim(-4.0, 4.0)
@@ -126,25 +276,42 @@ def zoom_pic():
     #            title='Zoom window')
 
     i = 0
+
+    # 极值点所有x y数据
+    ext_xzbs = []
+    ext_yzbs = []
+    # 曲线所有的x y数据
+    xarrs = []
+    yarrs = []
+
     for line in lines:
         title, td, rd = line
-        X = td
-        Y = rd
+        xarr = td
+        yarr = rd
         # log('rd = {}'.format(rd))
+
+        # 获取当前曲线的xarr, yarr最大最小值
+        xarr_max, xarr_min = xarr.max(), xarr.min()
+        yarr_max, yarr_min = yarr.max(), yarr.min()
+
+
 
         # 自动获取不同线条颜色
         line_color = chose_color(i)
-        i += 1
 
         # 1.缩放曲线
         # 2.根据算法缩放曲线
 
         # 选择颜色, 绘制曲线
-        # 分别将曲线数据 加载到src zoom 图上
-        # log('选中的颜色 = ', line_color)
-        src.plot(X, Y, color=line_color, linewidth=2.5, linestyle='-', label='Td=({})'.format(title))  # 增加了label以便增加图例
-        zoom.plot(X, Y, color=line_color, linewidth=2.5, linestyle='-', label='Td=({})'.format(title))  # 增加了label以便增加图例
+        # 分别将曲线数据 加载到src, zoom 图上
+        src.plot(xarr, yarr, color=line_color, linewidth=2.5, linestyle='-', label='Td=({})'.format(title))  # 增加了label以便增加图例
+        zoom.plot(xarr, yarr, color=line_color, linewidth=2.5, linestyle='-', label='Td=({})'.format(title))  # 增加了label以便增加图例
         # plt.plot(X, S, color="red", linewidth=2.5, linestyle="-", label='sin')  # 增加了label以便增加图例
+        i += 1
+
+        # 获取当前曲线的xarr, yarr最大最小值
+        xarr_max, xarr_min = xarr.max(), xarr.min()
+        yarr_max, yarr_min = yarr.max(), yarr.min()
 
         # 缩放函数
         # 1.寻找极值点
@@ -155,32 +322,50 @@ def zoom_pic():
         #       获得点x, y的均值
         #       根据均值设置图像的x轴 y轴 的上下限
 
-        ext = rd/td
-        # x == np.max(x)
+        # 获取当前yarr极值点
+        t = find_inflection_point(yarr)
+        # log('y的极值({})'.format(t))
 
-        np.where(ext == np.max(ext))
-        np.where(ext == np.min(ext))
+        # 将该极值点在曲线上画出来
+        # 极值点的y坐标决定 y轴上限
+        # 极值点的x坐标决定 x轴上限
+        xzb = xarr[t]
+        yzb = yarr[t]
+        zoom.plot(xzb, yzb, 'o')
+        # log(' 坐标点x=({})  y=({})'.format(xzb, yzb))
 
-        log(ext.min(), '\n位置', np.where(ext == np.min(ext)), '***\n', ext.max(), np.where(ext == np.max(ext)))
+        # 缩放多根曲线
+        # 需要将曲线的 需要zoom_xlim zoom_ylim
 
-        x = X
-        src.plot(signal.argrelextrema(X, np.greater)[0], X[signal.argrelextrema(X, np.greater)], 'o')
-        src.plot(signal.argrelextrema(-X, np.greater)[0], X[signal.argrelextrema(-X, np.greater)], '+')
-        # log('rd = ({})'.format(x))
-        print(x[signal.argrelextrema(x, np.greater)])
-        print(signal.argrelextrema(x, np.greater))
+        # 缩放单根曲线
+        # 获取曲线极值点的当前坐标
+        # 设置缩放的x轴
 
-        # zoom.axes.set_xlim(0,100)
+        # 根据当前曲线的xarr, yarr最大最小值 以及极值点缩放曲线
+
+        # 设置缩放曲线的x, y轴的范围
+        # zoom_xlim = get_zoomed_xy_axes_limts(xarr_min, xzb * 5)
+        # zoom_ylim = get_zoomed_xy_axes_limts(yarr_min, yzb * 200)
+
         # 下面部分是是操作lenged标签位置
-        src.legend(loc='best')  # 添加个图例 设置图例自动调整
+        # src.legend(loc='best')  # 添加个图例 设置图例自动调整
         zoom.legend(loc='best')
 
         src.set(title='原始图像')
         zoom.set(title='缩放图像')
 
         figure.canvas.mpl_connect('button_press_event', onpress)
+        # break
+
+    xlim_min, xlim_max, ylim_min, ylim_max = get_zoomed_xy_axes_limts()
+    zoom_xlim = (xlim_min, xlim_max)
+    zoom_ylim = (ylim_min, ylim_max)
+
+    src.set(xlim=zoom_xlim, ylim=zoom_ylim, autoscale_on=False, title='原始缩放图像')
+    zoom.set(xlim=zoom_xlim, ylim=zoom_ylim, autoscale_on=False, title='再次缩放图像')
 
     plt.show()
+    log("end zoom")
     pass
 
 
@@ -272,6 +457,12 @@ def draw_line(ratio=(0.1, 0.1), legend_position=(0.8, 0.9)):
     plt.show()
 
 
+def test_find_inflection_point():
+    # 测试寻找拐点
+    find_inflection_point([])
+    pass
+
+
 def test_zoom_pic():
     zoom_pic()
     pass
@@ -282,6 +473,7 @@ def test():
     # load_colors_with_number(4)
     # draw_line()
     test_zoom_pic()
+    test_find_inflection_point()
     pass
 
 
